@@ -1,0 +1,130 @@
+{
+  "project_info": {
+    "project_number": "1052547698119",
+    "project_id": "customdev-nu3food",
+    "storage_bucket": "customdev-nu3food.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052547698119:android:dd8bf75020ce66ab255de2",
+        "android_client_info": {
+          "package_name": "eu.eurospotrebitelia.nu3food"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052547698119-40a8bmh1mt85ml46vi6iqd51uijupp1u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eu.eurospotrebitelia.nu3food",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1052547698119-mgn3egkeihj3nnapbfjitssgq63cqoeq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR77uD_NWkdL5ARsMkfsmi6aksHL3Tdpg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052547698119-icu3cmkj3o025gl7qspvacvsd4qbn1hd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1052547698119-bihpii2mobakpi0d3t7h90jrvo1qr980.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "eu.eurospotrebitelia.nu3food"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052547698119:android:56e6464d03758a16255de2",
+        "android_client_info": {
+          "package_name": "sk.customdev.nu3food"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052547698119-08kpt3dnuf4fpulv8i2p6ieb9gl3ck9n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sk.customdev.nu3food",
+            "certificate_hash": "79c734e54fa51e23e9f2527483a84407590e9a87"
+          }
+        },
+        {
+          "client_id": "1052547698119-5jodo0hjv5cbasqurl48786dk8dt5uej.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sk.customdev.nu3food",
+            "certificate_hash": "485ee56ee0ecc991f5746fb6c8c106c6c3153036"
+          }
+        },
+        {
+          "client_id": "1052547698119-etn1epda1p5dq9ihidi7o2811b2717p9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sk.customdev.nu3food",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1052547698119-i221u6ukgpiqlum1u49nal32r6s8ibq3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sk.customdev.nu3food",
+            "certificate_hash": "e17c4c917a6789d84a80fff6ffd6b2ef7fb508de"
+          }
+        },
+        {
+          "client_id": "1052547698119-n9hdu5pl9aidjr1cbomfncpqbdltihgj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "sk.customdev.nu3food",
+            "certificate_hash": "03fc19bca33ce4f5e1a7be2ab2b1741f62eb27a5"
+          }
+        },
+        {
+          "client_id": "1052547698119-mgn3egkeihj3nnapbfjitssgq63cqoeq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR77uD_NWkdL5ARsMkfsmi6aksHL3Tdpg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052547698119-icu3cmkj3o025gl7qspvacvsd4qbn1hd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1052547698119-bihpii2mobakpi0d3t7h90jrvo1qr980.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "eu.eurospotrebitelia.nu3food"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
