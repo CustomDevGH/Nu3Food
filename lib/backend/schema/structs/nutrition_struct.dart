@@ -26,34 +26,43 @@ class NutritionStruct extends FFFirebaseStruct {
   String? _name;
   String get name => _name ?? '';
   set name(String? val) => _name = val;
+
   bool hasName() => _name != null;
 
   // "Units" field.
   String? _units;
   String get units => _units ?? '';
   set units(String? val) => _units = val;
+
   bool hasUnits() => _units != null;
 
   // "Value" field.
   double? _value;
   double get value => _value ?? 0.0;
   set value(double? val) => _value = val;
-  void incrementValue(double amount) => _value = value + amount;
+
+  void incrementValue(double amount) => value = value + amount;
+
   bool hasValue() => _value != null;
 
   // "SubNutrition" field.
   SubNutritionStruct? _subNutrition;
   SubNutritionStruct get subNutrition => _subNutrition ?? SubNutritionStruct();
   set subNutrition(SubNutritionStruct? val) => _subNutrition = val;
-  void updateSubNutrition(Function(SubNutritionStruct) updateFn) =>
-      updateFn(_subNutrition ??= SubNutritionStruct());
+
+  void updateSubNutrition(Function(SubNutritionStruct) updateFn) {
+    updateFn(_subNutrition ??= SubNutritionStruct());
+  }
+
   bool hasSubNutrition() => _subNutrition != null;
 
   static NutritionStruct fromMap(Map<String, dynamic> data) => NutritionStruct(
         name: data['Name'] as String?,
         units: data['Units'] as String?,
         value: castToType<double>(data['Value']),
-        subNutrition: SubNutritionStruct.maybeFromMap(data['SubNutrition']),
+        subNutrition: data['SubNutrition'] is SubNutritionStruct
+            ? data['SubNutrition']
+            : SubNutritionStruct.maybeFromMap(data['SubNutrition']),
       );
 
   static NutritionStruct? maybeFromMap(dynamic data) => data is Map

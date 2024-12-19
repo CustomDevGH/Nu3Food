@@ -22,12 +22,14 @@ class MedicationStructStruct extends FFFirebaseStruct {
   String? _name;
   String get name => _name ?? '';
   set name(String? val) => _name = val;
+
   bool hasName() => _name != null;
 
   // "isSafe" field.
   bool? _isSafe;
   bool get isSafe => _isSafe ?? false;
   set isSafe(bool? val) => _isSafe = val;
+
   bool hasIsSafe() => _isSafe != null;
 
   static MedicationStructStruct fromMap(Map<String, dynamic> data) =>

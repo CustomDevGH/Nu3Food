@@ -1,5 +1,7 @@
 const axios = require("axios").default;
-const qs = require("qs");
+const qs = require('qs');
+
+
 
 /// Helper functions to route to the appropriate API Call.
 
@@ -7,7 +9,9 @@ async function makeApiCall(context, data) {
   var callName = data["callName"] || "";
   var variables = data["variables"] || {};
 
-  const callMap = {};
+  const callMap = {
+
+  };
 
   if (!(callName in callMap)) {
     return {
@@ -28,6 +32,7 @@ async function makeApiRequest({
   params,
   body,
   returnBody,
+  isStreamingApi,
 }) {
   return axios
     .request({
@@ -35,6 +40,7 @@ async function makeApiRequest({
       url: url,
       headers: headers,
       params: params,
+      responseType: (isStreamingApi ? 'stream' : 'json'),
       ...(body && { data: body }),
     })
     .then((response) => {
@@ -42,6 +48,7 @@ async function makeApiRequest({
         statusCode: response.status,
         headers: response.headers,
         ...(returnBody && { body: response.data }),
+        isStreamingApi: isStreamingApi,
       };
     })
     .catch(function (error) {

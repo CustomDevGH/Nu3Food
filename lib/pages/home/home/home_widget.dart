@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -38,7 +39,7 @@ class _HomeWidgetState extends State<HomeWidget> {
     if (!isWeb) {
       _keyboardVisibilitySubscription =
           KeyboardVisibilityController().onChange.listen((bool visible) {
-        setState(() {
+        safeSetState(() {
           _isKeyboardVisible = visible;
         });
       });
@@ -60,9 +61,10 @@ class _HomeWidgetState extends State<HomeWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).lNWhite,
@@ -86,7 +88,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       children: [
                         wrapWithModel(
                           model: _model.headerModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: HeaderWidget(),
                         ),
                         if (FFAppState().ScannedItems.length != 0)
@@ -118,7 +120,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 ),
                                 child: wrapWithModel(
                                   model: _model.scannedItemsModel,
-                                  updateCallback: () => setState(() {}),
+                                  updateCallback: () => safeSetState(() {}),
                                   updateOnChange: true,
                                   child: ScannedItemsWidget(),
                                 ),
@@ -131,7 +133,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           ),
                           child: wrapWithModel(
                             model: _model.intoleranciesModel,
-                            updateCallback: () => setState(() {}),
+                            updateCallback: () => safeSetState(() {}),
                             updateOnChange: true,
                             child: IntoleranciesWidget(),
                           ),
@@ -141,7 +143,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             decoration: BoxDecoration(),
                             child: wrapWithModel(
                               model: _model.medicationModel,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: MedicationWidget(
                                 shouldShowLink: true,
                                 whereToScroll: () async {
@@ -170,7 +172,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: wrapWithModel(
                       model: _model.openScannerButtonModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: OpenScannerButtonWidget(),
                     ),
                   ),

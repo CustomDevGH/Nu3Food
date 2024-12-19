@@ -22,12 +22,14 @@ class EURssFeedModelStruct extends FFFirebaseStruct {
   String? _title;
   String get title => _title ?? '';
   set title(String? val) => _title = val;
+
   bool hasTitle() => _title != null;
 
   // "Link" field.
   String? _link;
   String get link => _link ?? '';
   set link(String? val) => _link = val;
+
   bool hasLink() => _link != null;
 
   static EURssFeedModelStruct fromMap(Map<String, dynamic> data) =>

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -53,7 +54,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
         children: [
           wrapWithModel(
             model: _model.componentHeadingModel,
-            updateCallback: () => setState(() {}),
+            updateCallback: () => safeSetState(() {}),
             child: ComponentHeadingWidget(
               title: FFLocalizations.of(context).getText(
                 'xtv5yvz4' /* My preferences */,
@@ -114,12 +115,11 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                 ))
               ],
               onChanged: (val) async {
-                setState(() => _model.choiceChipsValues = val);
+                safeSetState(() => _model.choiceChipsValues = val);
                 logFirebaseEvent('INTOLERANCIES_ChoiceChips_y5nymz6a_ON_FO');
-                _model.updatePage(() {
-                  FFAppState().Allergies =
-                      _model.choiceChipsValues!.toList().cast<String>();
-                });
+                FFAppState().Allergies =
+                    _model.choiceChipsValues!.toList().cast<String>();
+                _model.updatePage(() {});
               },
               selectedChipStyle: ChipStyle(
                 backgroundColor: Color(0xFF382F73),

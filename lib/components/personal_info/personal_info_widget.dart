@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
@@ -66,7 +67,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget.greetingText,
+              widget!.greetingText,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Roboto',
                     color: FlutterFlowTheme.of(context).primary,
@@ -155,10 +156,9 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                     );
                   });
                 }
-                setState(() {
-                  FFAppState().dateOfBirdth = _model.datePicked;
-                  FFAppState().dobSet = true;
-                });
+                FFAppState().dateOfBirdth = _model.datePicked;
+                FFAppState().dobSet = true;
+                safeSetState(() {});
               },
               child: Container(
                 width: double.infinity,
@@ -181,7 +181,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                         valueOrDefault<String>(
                           FFAppState().dobSet == true
                               ? dateTimeFormat(
-                                  'yMMMd',
+                                  "yMMMd",
                                   FFAppState().dateOfBirdth,
                                   locale:
                                       FFLocalizations.of(context).languageCode,
@@ -238,11 +238,10 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                   )
                 ],
                 onChanged: (val) async {
-                  setState(() => _model.dropDownValue = val);
+                  safeSetState(() => _model.dropDownValue = val);
                   logFirebaseEvent('PERSONAL_INFO_DropDown_sh64k2mm_ON_FORM_');
-                  setState(() {
-                    FFAppState().gender = _model.dropDownValue!;
-                  });
+                  FFAppState().gender = _model.dropDownValue!;
+                  safeSetState(() {});
                 },
                 width: double.infinity,
                 height: 45.0,

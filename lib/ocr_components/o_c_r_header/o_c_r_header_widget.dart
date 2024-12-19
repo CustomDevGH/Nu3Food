@@ -51,7 +51,7 @@ class _OCRHeaderWidgetState extends State<OCRHeaderWidget> {
       child: Align(
         alignment: AlignmentDirectional(0.0, 0.8),
         child: Text(
-          widget.currentName!,
+          widget!.currentName!,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Roboto',
                 color: FlutterFlowTheme.of(context).lNWhite,

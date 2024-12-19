@@ -36,20 +36,25 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
   int? _novaGrade;
   int get novaGrade => _novaGrade ?? 0;
   set novaGrade(int? val) => _novaGrade = val;
-  void incrementNovaGrade(int amount) => _novaGrade = novaGrade + amount;
+
+  void incrementNovaGrade(int amount) => novaGrade = novaGrade + amount;
+
   bool hasNovaGrade() => _novaGrade != null;
 
   // "EcoScore" field.
   double? _ecoScore;
   double get ecoScore => _ecoScore ?? 0.0;
   set ecoScore(double? val) => _ecoScore = val;
-  void incrementEcoScore(double amount) => _ecoScore = ecoScore + amount;
+
+  void incrementEcoScore(double amount) => ecoScore = ecoScore + amount;
+
   bool hasEcoScore() => _ecoScore != null;
 
   // "EcoScoreGrade" field.
   EcoScoreGrades? _ecoScoreGrade;
   EcoScoreGrades get ecoScoreGrade => _ecoScoreGrade ?? EcoScoreGrades.none;
   set ecoScoreGrade(EcoScoreGrades? val) => _ecoScoreGrade = val;
+
   bool hasEcoScoreGrade() => _ecoScoreGrade != null;
 
   // "Nutriscore_FatLevel" field.
@@ -57,6 +62,7 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
   NutriscoreLevels get nutriscoreFatLevel =>
       _nutriscoreFatLevel ?? NutriscoreLevels.none;
   set nutriscoreFatLevel(NutriscoreLevels? val) => _nutriscoreFatLevel = val;
+
   bool hasNutriscoreFatLevel() => _nutriscoreFatLevel != null;
 
   // "Nutriscore_SugarLevel" field.
@@ -65,6 +71,7 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
       _nutriscoreSugarLevel ?? NutriscoreLevels.none;
   set nutriscoreSugarLevel(NutriscoreLevels? val) =>
       _nutriscoreSugarLevel = val;
+
   bool hasNutriscoreSugarLevel() => _nutriscoreSugarLevel != null;
 
   // "Nutriscore_SaturatedFatLevel" field.
@@ -73,6 +80,7 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
       _nutriscoreSaturatedFatLevel ?? NutriscoreLevels.none;
   set nutriscoreSaturatedFatLevel(NutriscoreLevels? val) =>
       _nutriscoreSaturatedFatLevel = val;
+
   bool hasNutriscoreSaturatedFatLevel() => _nutriscoreSaturatedFatLevel != null;
 
   // "Nutriscore_SaltLevel" field.
@@ -80,12 +88,14 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
   NutriscoreLevels get nutriscoreSaltLevel =>
       _nutriscoreSaltLevel ?? NutriscoreLevels.none;
   set nutriscoreSaltLevel(NutriscoreLevels? val) => _nutriscoreSaltLevel = val;
+
   bool hasNutriscoreSaltLevel() => _nutriscoreSaltLevel != null;
 
   // "NutriscoreGrade" field.
   EcoScoreGrades? _nutriscoreGrade;
   EcoScoreGrades get nutriscoreGrade => _nutriscoreGrade ?? EcoScoreGrades.none;
   set nutriscoreGrade(EcoScoreGrades? val) => _nutriscoreGrade = val;
+
   bool hasNutriscoreGrade() => _nutriscoreGrade != null;
 
   // "Nova_group_markers" field.
@@ -94,25 +104,37 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
       _novaGroupMarkers ?? const [];
   set novaGroupMarkers(List<NovaGroupMarkerStruct>? val) =>
       _novaGroupMarkers = val;
-  void updateNovaGroupMarkers(Function(List<NovaGroupMarkerStruct>) updateFn) =>
-      updateFn(_novaGroupMarkers ??= []);
+
+  void updateNovaGroupMarkers(Function(List<NovaGroupMarkerStruct>) updateFn) {
+    updateFn(_novaGroupMarkers ??= []);
+  }
+
   bool hasNovaGroupMarkers() => _novaGroupMarkers != null;
 
   static ProductFromOFFStruct fromMap(Map<String, dynamic> data) =>
       ProductFromOFFStruct(
         novaGrade: castToType<int>(data['NovaGrade']),
         ecoScore: castToType<double>(data['EcoScore']),
-        ecoScoreGrade: deserializeEnum<EcoScoreGrades>(data['EcoScoreGrade']),
-        nutriscoreFatLevel:
-            deserializeEnum<NutriscoreLevels>(data['Nutriscore_FatLevel']),
-        nutriscoreSugarLevel:
-            deserializeEnum<NutriscoreLevels>(data['Nutriscore_SugarLevel']),
-        nutriscoreSaturatedFatLevel: deserializeEnum<NutriscoreLevels>(
-            data['Nutriscore_SaturatedFatLevel']),
-        nutriscoreSaltLevel:
-            deserializeEnum<NutriscoreLevels>(data['Nutriscore_SaltLevel']),
-        nutriscoreGrade:
-            deserializeEnum<EcoScoreGrades>(data['NutriscoreGrade']),
+        ecoScoreGrade: data['EcoScoreGrade'] is EcoScoreGrades
+            ? data['EcoScoreGrade']
+            : deserializeEnum<EcoScoreGrades>(data['EcoScoreGrade']),
+        nutriscoreFatLevel: data['Nutriscore_FatLevel'] is NutriscoreLevels
+            ? data['Nutriscore_FatLevel']
+            : deserializeEnum<NutriscoreLevels>(data['Nutriscore_FatLevel']),
+        nutriscoreSugarLevel: data['Nutriscore_SugarLevel'] is NutriscoreLevels
+            ? data['Nutriscore_SugarLevel']
+            : deserializeEnum<NutriscoreLevels>(data['Nutriscore_SugarLevel']),
+        nutriscoreSaturatedFatLevel:
+            data['Nutriscore_SaturatedFatLevel'] is NutriscoreLevels
+                ? data['Nutriscore_SaturatedFatLevel']
+                : deserializeEnum<NutriscoreLevels>(
+                    data['Nutriscore_SaturatedFatLevel']),
+        nutriscoreSaltLevel: data['Nutriscore_SaltLevel'] is NutriscoreLevels
+            ? data['Nutriscore_SaltLevel']
+            : deserializeEnum<NutriscoreLevels>(data['Nutriscore_SaltLevel']),
+        nutriscoreGrade: data['NutriscoreGrade'] is EcoScoreGrades
+            ? data['NutriscoreGrade']
+            : deserializeEnum<EcoScoreGrades>(data['NutriscoreGrade']),
         novaGroupMarkers: getStructList(
           data['Nova_group_markers'],
           NovaGroupMarkerStruct.fromMap,
@@ -173,7 +195,7 @@ class ProductFromOFFStruct extends FFFirebaseStruct {
         'Nova_group_markers': serializeParam(
           _novaGroupMarkers,
           ParamType.DataStruct,
-          true,
+          isList: true,
         ),
       }.withoutNulls;
 
