@@ -396,3 +396,57 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Flutter/Dart specific
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.dart_tool/
+build/
+*.iml
+*.lastUpdate
+
+# Android specific
+android/app/build/
+android/build/
+android/.gradle/
+android/gradlew
+android/gradlew.bat
+android/local.properties
+android/key.properties
+android/app/src/main/res/values/google_maps_api.xml # If using Google Maps and storing API key locally
+
+# iOS specific
+ios/Pods/
+ios/Podfile.lock
+ios/.symlinks/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Runner/GeneratedPluginRegistrant.*
+ios/Runner.xcworkspace/xcuserdata/
+ios/Runner.xcodeproj/project.xcworkspace/
+ios/Runner.xcodeproj/xcuserdata/
+ios/Flutter/ephemeral/ # Xcode 14+ intermediate files
+
+# Web specific (if applicable)
+web/build/
+web/.dart_tool/
+
+# Desktop specific (if applicable)
+windows/build/
+linux/build/
+macos/build/
+
+# Logs and local settings
+*.log
+*.env
+lib/secrets.dart # If you store secrets this way
+
+# IDE specific (some might be covered already)
+.idea/
+*.swp
+*~
+
+pubspec.lock
