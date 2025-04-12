@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import 'dart:ui';
 import 'settings_widget.dart' show SettingsWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -18,7 +19,6 @@ import 'package:provider/provider.dart';
 class SettingsModel extends FlutterFlowModel<SettingsWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for Column widget.
   ScrollController? columnController;
   // Model for AvatarMenu component.
@@ -41,7 +41,6 @@ class SettingsModel extends FlutterFlowModel<SettingsWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     columnController?.dispose();
     avatarMenuModel.dispose();
     personalInfoModel.dispose();

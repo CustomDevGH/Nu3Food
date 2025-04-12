@@ -62,9 +62,8 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   logFirebaseEvent('AUTH_COMPONENT_Container_v7lawx9j_ON_TAP');
-                  setState(() {
-                    _model.loading = true;
-                  });
+                  _model.loading = true;
+                  safeSetState(() {});
                   GoRouter.of(context).prepareAuthEvent();
                   final user = await authManager.signInWithApple(context);
                   if (user == null) {
@@ -77,9 +76,8 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                     context.goNamedAuth('Home', context.mounted);
                   }
 
-                  setState(() {
-                    _model.loading = false;
-                  });
+                  _model.loading = false;
+                  safeSetState(() {});
                 },
                 child: Container(
                   width: double.infinity,
@@ -198,9 +196,8 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                     context.goNamedAuth('Home', context.mounted);
                   }
 
-                  setState(() {
-                    _model.loading = false;
-                  });
+                  _model.loading = false;
+                  safeSetState(() {});
                 },
                 child: Material(
                   color: Colors.transparent,

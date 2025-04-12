@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -40,16 +41,15 @@ class _WizardWidgetState extends State<WizardWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('WIZARD_PAGE_Wizard_ON_INIT_STATE');
       if (FFAppState().imageName == null || FFAppState().imageName == '') {
-        setState(() {
-          FFAppState().imageName = 'abc';
-        });
+        FFAppState().imageName = 'abc';
+        safeSetState(() {});
       }
     });
 
     if (!isWeb) {
       _keyboardVisibilitySubscription =
           KeyboardVisibilityController().onChange.listen((bool visible) {
-        setState(() {
+        safeSetState(() {
           _isKeyboardVisible = visible;
         });
       });
@@ -71,9 +71,10 @@ class _WizardWidgetState extends State<WizardWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.transparent,
@@ -130,7 +131,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                 ),
                                 child: wrapWithModel(
                                   model: _model.componentHeadingModel1,
-                                  updateCallback: () => setState(() {}),
+                                  updateCallback: () => safeSetState(() {}),
                                   child: ComponentHeadingWidget(
                                     title: FFLocalizations.of(context).getText(
                                       '3wtz1sbg' /* Create your profile */,
@@ -147,12 +148,12 @@ class _WizardWidgetState extends State<WizardWidget> {
                               ),
                               wrapWithModel(
                                 model: _model.avatarMenuModel,
-                                updateCallback: () => setState(() {}),
+                                updateCallback: () => safeSetState(() {}),
                                 child: AvatarMenuWidget(),
                               ),
                               wrapWithModel(
                                 model: _model.personalInfoModel,
-                                updateCallback: () => setState(() {}),
+                                updateCallback: () => safeSetState(() {}),
                                 child: PersonalInfoWidget(
                                   greetingText:
                                       FFLocalizations.of(context).getText(
@@ -319,7 +320,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                 ),
                                 child: wrapWithModel(
                                   model: _model.componentHeadingModel2,
-                                  updateCallback: () => setState(() {}),
+                                  updateCallback: () => safeSetState(() {}),
                                   child: ComponentHeadingWidget(
                                     title: 'Tell us something about you',
                                     description:
@@ -334,7 +335,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                               ),
                               wrapWithModel(
                                 model: _model.intoleranciesModel,
-                                updateCallback: () => setState(() {}),
+                                updateCallback: () => safeSetState(() {}),
                                 child: IntoleranciesWidget(),
                               ),
                               if (FFAppState().medicaments)
@@ -345,7 +346,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                   ),
                                   child: wrapWithModel(
                                     model: _model.medicationModel,
-                                    updateCallback: () => setState(() {}),
+                                    updateCallback: () => safeSetState(() {}),
                                     child: MedicationWidget(
                                       shouldShowLink: false,
                                       whereToScroll: () async {

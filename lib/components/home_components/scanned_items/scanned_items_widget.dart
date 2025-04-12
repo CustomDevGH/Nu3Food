@@ -47,6 +47,7 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
     return Builder(
       builder: (context) {
         final scannedItem = FFAppState().ScannedItems.toList();
+
         return ListView.separated(
           padding: EdgeInsets.fromLTRB(
             0,
@@ -95,9 +96,9 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  );
 
-                  setState(() {});
+                  safeSetState(() {});
                 },
                 child: Container(
                   width: 231.0,

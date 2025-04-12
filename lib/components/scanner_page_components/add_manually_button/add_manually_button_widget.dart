@@ -61,7 +61,7 @@ class _AddManuallyButtonWidgetState extends State<AddManuallyButtonWidget> {
         await RequestedEansRecord.collection
             .doc()
             .set(createRequestedEansRecordData(
-              ean: widget.ean,
+              ean: widget!.ean,
               createdBy: FFAppState().IsGuest ? 'guest' : currentUserUid,
               creationTime: getCurrentTimestamp,
             ));

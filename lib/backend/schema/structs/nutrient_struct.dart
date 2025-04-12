@@ -24,18 +24,21 @@ class NutrientStruct extends FFFirebaseStruct {
   String? _nutrientType;
   String get nutrientType => _nutrientType ?? '';
   set nutrientType(String? val) => _nutrientType = val;
+
   bool hasNutrientType() => _nutrientType != null;
 
   // "Unit" field.
   String? _unit;
   String get unit => _unit ?? '';
   set unit(String? val) => _unit = val;
+
   bool hasUnit() => _unit != null;
 
   // "Value" field.
   String? _value;
   String get value => _value ?? '';
   set value(String? val) => _value = val;
+
   bool hasValue() => _value != null;
 
   static NutrientStruct fromMap(Map<String, dynamic> data) => NutrientStruct(

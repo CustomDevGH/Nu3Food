@@ -22,12 +22,14 @@ class IngredientStruct extends FFFirebaseStruct {
   String? _name;
   String get name => _name ?? '';
   set name(String? val) => _name = val;
+
   bool hasName() => _name != null;
 
   // "IsAllergen" field.
   bool? _isAllergen;
   bool get isAllergen => _isAllergen ?? false;
   set isAllergen(bool? val) => _isAllergen = val;
+
   bool hasIsAllergen() => _isAllergen != null;
 
   static IngredientStruct fromMap(Map<String, dynamic> data) =>

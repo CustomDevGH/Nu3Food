@@ -26,26 +26,31 @@ class ScannedItemStruct extends FFFirebaseStruct {
   String? _ean;
   String get ean => _ean ?? '';
   set ean(String? val) => _ean = val;
+
   bool hasEan() => _ean != null;
 
   // "LastScanned" field.
   DateTime? _lastScanned;
   DateTime? get lastScanned => _lastScanned;
   set lastScanned(DateTime? val) => _lastScanned = val;
+
   bool hasLastScanned() => _lastScanned != null;
 
   // "IsFavourite" field.
   bool? _isFavourite;
   bool get isFavourite => _isFavourite ?? false;
   set isFavourite(bool? val) => _isFavourite = val;
+
   bool hasIsFavourite() => _isFavourite != null;
 
   // "NumberOfScans" field.
   int? _numberOfScans;
   int get numberOfScans => _numberOfScans ?? 0;
   set numberOfScans(int? val) => _numberOfScans = val;
+
   void incrementNumberOfScans(int amount) =>
-      _numberOfScans = numberOfScans + amount;
+      numberOfScans = numberOfScans + amount;
+
   bool hasNumberOfScans() => _numberOfScans != null;
 
   static ScannedItemStruct fromMap(Map<String, dynamic> data) =>

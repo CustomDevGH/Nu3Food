@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -44,17 +45,16 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('SCANNED_ITEM_ScannedItem_ON_INIT_STATE');
       _model.newFood = await actions.getFoodFromEAN(
-        widget.scannedItem!.ean,
+        widget!.scannedItem!.ean,
         false,
       );
       _model.foodSafe = await actions.isFoodSafe(
         _model.newFood?.allergens?.toList(),
       );
-      setState(() {
-        _model.loadedEan = true;
-        _model.isFoodSafe = _model.foodSafe!;
-        _model.food = _model.newFood;
-      });
+      _model.loadedEan = true;
+      _model.isFoodSafe = _model.foodSafe!;
+      _model.food = _model.newFood;
+      safeSetState(() {});
     });
   }
 
@@ -120,8 +120,8 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                             child: AutoSizeText(
                               valueOrDefault<String>(
                                 dateTimeFormat(
-                                  'EEEE, H:mm',
-                                  widget.scannedItem?.lastScanned,
+                                  "EEEE, H:mm",
+                                  widget!.scannedItem?.lastScanned,
                                   locale:
                                       FFLocalizations.of(context).languageCode,
                                 ),
@@ -192,7 +192,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                           ),
                           Text(
                             valueOrDefault<String>(
-                              _model.food?.addressLines?.first,
+                              _model.food?.addressLines?.firstOrNull,
                               'Couldn\'t find producer',
                             ),
                             maxLines: 1,
@@ -216,7 +216,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                     width: double.infinity,
                     height: 12.0,
                     allergens: _model.newFood!.allergens,
-                    ean: widget.scannedItem?.ean,
+                    ean: widget!.scannedItem?.ean,
                   ),
                 ].divide(SizedBox(height: 24.0)),
               ),

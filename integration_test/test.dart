@@ -19,7 +19,6 @@ void main() async {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   setUpAll(() async {
-    _overrideOnError();
     await initFirebase();
 
     await FFLocalizations.initialize();
@@ -33,6 +32,8 @@ void main() async {
   });
 
   testWidgets('Test test', (WidgetTester tester) async {
+    _overrideOnError();
+
     await tester.pumpWidget(ChangeNotifierProvider(
       create: (context) => FFAppState(),
       child: MyApp(),
@@ -48,6 +49,7 @@ void main() async {
   });
 
   testWidgets('Test of auth', (WidgetTester tester) async {
+    _overrideOnError();
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: 'kapitulcinjakub1@gmail.com', password: 'heslo123');
     await tester.pumpWidget(ChangeNotifierProvider(
@@ -61,6 +63,8 @@ void main() async {
   });
 
   testWidgets('LoggedOutSettingsTest', (WidgetTester tester) async {
+    _overrideOnError();
+
     await tester.pumpWidget(ChangeNotifierProvider(
       create: (context) => FFAppState(),
       child: MyApp(),

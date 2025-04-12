@@ -77,54 +77,54 @@ class FFAppState extends ChangeNotifier {
 
   List<ScannedItemStruct> _ScannedItems = [];
   List<ScannedItemStruct> get ScannedItems => _ScannedItems;
-  set ScannedItems(List<ScannedItemStruct> _value) {
-    _ScannedItems = _value;
+  set ScannedItems(List<ScannedItemStruct> value) {
+    _ScannedItems = value;
     secureStorage.setStringList(
-        'ff_ScannedItems', _value.map((x) => x.serialize()).toList());
+        'ff_ScannedItems', value.map((x) => x.serialize()).toList());
   }
 
   void deleteScannedItems() {
     secureStorage.delete(key: 'ff_ScannedItems');
   }
 
-  void addToScannedItems(ScannedItemStruct _value) {
-    _ScannedItems.add(_value);
+  void addToScannedItems(ScannedItemStruct value) {
+    ScannedItems.add(value);
     secureStorage.setStringList(
         'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
   }
 
-  void removeFromScannedItems(ScannedItemStruct _value) {
-    _ScannedItems.remove(_value);
+  void removeFromScannedItems(ScannedItemStruct value) {
+    ScannedItems.remove(value);
     secureStorage.setStringList(
         'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
   }
 
-  void removeAtIndexFromScannedItems(int _index) {
-    _ScannedItems.removeAt(_index);
+  void removeAtIndexFromScannedItems(int index) {
+    ScannedItems.removeAt(index);
     secureStorage.setStringList(
         'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
   }
 
   void updateScannedItemsAtIndex(
-    int _index,
+    int index,
     ScannedItemStruct Function(ScannedItemStruct) updateFn,
   ) {
-    _ScannedItems[_index] = updateFn(_ScannedItems[_index]);
+    ScannedItems[index] = updateFn(_ScannedItems[index]);
     secureStorage.setStringList(
         'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
   }
 
-  void insertAtIndexInScannedItems(int _index, ScannedItemStruct _value) {
-    _ScannedItems.insert(_index, _value);
+  void insertAtIndexInScannedItems(int index, ScannedItemStruct value) {
+    ScannedItems.insert(index, value);
     secureStorage.setStringList(
         'ff_ScannedItems', _ScannedItems.map((x) => x.serialize()).toList());
   }
 
   bool _IsGuest = true;
   bool get IsGuest => _IsGuest;
-  set IsGuest(bool _value) {
-    _IsGuest = _value;
-    secureStorage.setBool('ff_IsGuest', _value);
+  set IsGuest(bool value) {
+    _IsGuest = value;
+    secureStorage.setBool('ff_IsGuest', value);
   }
 
   void deleteIsGuest() {
@@ -133,49 +133,49 @@ class FFAppState extends ChangeNotifier {
 
   List<String> _Allergies = [];
   List<String> get Allergies => _Allergies;
-  set Allergies(List<String> _value) {
-    _Allergies = _value;
-    secureStorage.setStringList('ff_Allergies', _value);
+  set Allergies(List<String> value) {
+    _Allergies = value;
+    secureStorage.setStringList('ff_Allergies', value);
   }
 
   void deleteAllergies() {
     secureStorage.delete(key: 'ff_Allergies');
   }
 
-  void addToAllergies(String _value) {
-    _Allergies.add(_value);
+  void addToAllergies(String value) {
+    Allergies.add(value);
     secureStorage.setStringList('ff_Allergies', _Allergies);
   }
 
-  void removeFromAllergies(String _value) {
-    _Allergies.remove(_value);
+  void removeFromAllergies(String value) {
+    Allergies.remove(value);
     secureStorage.setStringList('ff_Allergies', _Allergies);
   }
 
-  void removeAtIndexFromAllergies(int _index) {
-    _Allergies.removeAt(_index);
+  void removeAtIndexFromAllergies(int index) {
+    Allergies.removeAt(index);
     secureStorage.setStringList('ff_Allergies', _Allergies);
   }
 
   void updateAllergiesAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _Allergies[_index] = updateFn(_Allergies[_index]);
+    Allergies[index] = updateFn(_Allergies[index]);
     secureStorage.setStringList('ff_Allergies', _Allergies);
   }
 
-  void insertAtIndexInAllergies(int _index, String _value) {
-    _Allergies.insert(_index, _value);
+  void insertAtIndexInAllergies(int index, String value) {
+    Allergies.insert(index, value);
     secureStorage.setStringList('ff_Allergies', _Allergies);
   }
 
   DateTime? _dateOfBirdth;
   DateTime? get dateOfBirdth => _dateOfBirdth;
-  set dateOfBirdth(DateTime? _value) {
-    _dateOfBirdth = _value;
-    _value != null
-        ? secureStorage.setInt('ff_dateOfBirdth', _value.millisecondsSinceEpoch)
+  set dateOfBirdth(DateTime? value) {
+    _dateOfBirdth = value;
+    value != null
+        ? secureStorage.setInt('ff_dateOfBirdth', value.millisecondsSinceEpoch)
         : secureStorage.remove('ff_dateOfBirdth');
   }
 
@@ -185,9 +185,9 @@ class FFAppState extends ChangeNotifier {
 
   String _gender = '';
   String get gender => _gender;
-  set gender(String _value) {
-    _gender = _value;
-    secureStorage.setString('ff_gender', _value);
+  set gender(String value) {
+    _gender = value;
+    secureStorage.setString('ff_gender', value);
   }
 
   void deleteGender() {
@@ -196,9 +196,9 @@ class FFAppState extends ChangeNotifier {
 
   bool _DoneWizzard = false;
   bool get DoneWizzard => _DoneWizzard;
-  set DoneWizzard(bool _value) {
-    _DoneWizzard = _value;
-    secureStorage.setBool('ff_DoneWizzard', _value);
+  set DoneWizzard(bool value) {
+    _DoneWizzard = value;
+    secureStorage.setBool('ff_DoneWizzard', value);
   }
 
   void deleteDoneWizzard() {
@@ -207,48 +207,48 @@ class FFAppState extends ChangeNotifier {
 
   List<String> _Medication = [];
   List<String> get Medication => _Medication;
-  set Medication(List<String> _value) {
-    _Medication = _value;
-    secureStorage.setStringList('ff_Medication', _value);
+  set Medication(List<String> value) {
+    _Medication = value;
+    secureStorage.setStringList('ff_Medication', value);
   }
 
   void deleteMedication() {
     secureStorage.delete(key: 'ff_Medication');
   }
 
-  void addToMedication(String _value) {
-    _Medication.add(_value);
+  void addToMedication(String value) {
+    Medication.add(value);
     secureStorage.setStringList('ff_Medication', _Medication);
   }
 
-  void removeFromMedication(String _value) {
-    _Medication.remove(_value);
+  void removeFromMedication(String value) {
+    Medication.remove(value);
     secureStorage.setStringList('ff_Medication', _Medication);
   }
 
-  void removeAtIndexFromMedication(int _index) {
-    _Medication.removeAt(_index);
+  void removeAtIndexFromMedication(int index) {
+    Medication.removeAt(index);
     secureStorage.setStringList('ff_Medication', _Medication);
   }
 
   void updateMedicationAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _Medication[_index] = updateFn(_Medication[_index]);
+    Medication[index] = updateFn(_Medication[index]);
     secureStorage.setStringList('ff_Medication', _Medication);
   }
 
-  void insertAtIndexInMedication(int _index, String _value) {
-    _Medication.insert(_index, _value);
+  void insertAtIndexInMedication(int index, String value) {
+    Medication.insert(index, value);
     secureStorage.setStringList('ff_Medication', _Medication);
   }
 
   String _imageName = 'avatar_111.svg';
   String get imageName => _imageName;
-  set imageName(String _value) {
-    _imageName = _value;
-    secureStorage.setString('ff_imageName', _value);
+  set imageName(String value) {
+    _imageName = value;
+    secureStorage.setString('ff_imageName', value);
   }
 
   void deleteImageName() {
@@ -257,9 +257,9 @@ class FFAppState extends ChangeNotifier {
 
   bool _dobSet = false;
   bool get dobSet => _dobSet;
-  set dobSet(bool _value) {
-    _dobSet = _value;
-    secureStorage.setBool('ff_dobSet', _value);
+  set dobSet(bool value) {
+    _dobSet = value;
+    secureStorage.setBool('ff_dobSet', value);
   }
 
   void deleteDobSet() {
@@ -268,43 +268,43 @@ class FFAppState extends ChangeNotifier {
 
   bool _medicaments = false;
   bool get medicaments => _medicaments;
-  set medicaments(bool _value) {
-    _medicaments = _value;
+  set medicaments(bool value) {
+    _medicaments = value;
   }
 
   List<SynonymStruct> _listOfSynonyms = [];
   List<SynonymStruct> get listOfSynonyms => _listOfSynonyms;
-  set listOfSynonyms(List<SynonymStruct> _value) {
-    _listOfSynonyms = _value;
+  set listOfSynonyms(List<SynonymStruct> value) {
+    _listOfSynonyms = value;
   }
 
-  void addToListOfSynonyms(SynonymStruct _value) {
-    _listOfSynonyms.add(_value);
+  void addToListOfSynonyms(SynonymStruct value) {
+    listOfSynonyms.add(value);
   }
 
-  void removeFromListOfSynonyms(SynonymStruct _value) {
-    _listOfSynonyms.remove(_value);
+  void removeFromListOfSynonyms(SynonymStruct value) {
+    listOfSynonyms.remove(value);
   }
 
-  void removeAtIndexFromListOfSynonyms(int _index) {
-    _listOfSynonyms.removeAt(_index);
+  void removeAtIndexFromListOfSynonyms(int index) {
+    listOfSynonyms.removeAt(index);
   }
 
   void updateListOfSynonymsAtIndex(
-    int _index,
+    int index,
     SynonymStruct Function(SynonymStruct) updateFn,
   ) {
-    _listOfSynonyms[_index] = updateFn(_listOfSynonyms[_index]);
+    listOfSynonyms[index] = updateFn(_listOfSynonyms[index]);
   }
 
-  void insertAtIndexInListOfSynonyms(int _index, SynonymStruct _value) {
-    _listOfSynonyms.insert(_index, _value);
+  void insertAtIndexInListOfSynonyms(int index, SynonymStruct value) {
+    listOfSynonyms.insert(index, value);
   }
 
   bool _isOcrEnabled = false;
   bool get isOcrEnabled => _isOcrEnabled;
-  set isOcrEnabled(bool _value) {
-    _isOcrEnabled = _value;
+  set isOcrEnabled(bool value) {
+    _isOcrEnabled = value;
   }
 }
 

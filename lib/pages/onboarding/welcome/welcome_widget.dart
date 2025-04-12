@@ -3,6 +3,7 @@ import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,9 +41,10 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -115,7 +117,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                 ),
                                 child: wrapWithModel(
                                   model: _model.componentHeadingModel1,
-                                  updateCallback: () => setState(() {}),
+                                  updateCallback: () => safeSetState(() {}),
                                   child: ComponentHeadingWidget(
                                     title: FFLocalizations.of(context).getText(
                                       '80qblzhs' /* Shop smarter, live healthier */,
@@ -273,7 +275,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                               ),
                               child: wrapWithModel(
                                 model: _model.componentHeadingModel2,
-                                updateCallback: () => setState(() {}),
+                                updateCallback: () => safeSetState(() {}),
                                 child: ComponentHeadingWidget(
                                   title: FFLocalizations.of(context).getText(
                                     'n1s12n0g' /* Registration */,
@@ -296,7 +298,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                               ),
                               child: wrapWithModel(
                                 model: _model.authComponentModel,
-                                updateCallback: () => setState(() {}),
+                                updateCallback: () => safeSetState(() {}),
                                 child: AuthComponentWidget(),
                               ),
                             ),

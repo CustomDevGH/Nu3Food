@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import 'open_scanner_button_widget.dart' show OpenScannerButtonWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

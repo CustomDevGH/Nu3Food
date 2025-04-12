@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -39,7 +40,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
     if (!isWeb) {
       _keyboardVisibilitySubscription =
           KeyboardVisibilityController().onChange.listen((bool visible) {
-        setState(() {
+        safeSetState(() {
           _isKeyboardVisible = visible;
         });
       });
@@ -61,9 +62,10 @@ class _SettingsWidgetState extends State<SettingsWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -119,12 +121,12 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         ),
                         wrapWithModel(
                           model: _model.avatarMenuModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: AvatarMenuWidget(),
                         ),
                         wrapWithModel(
                           model: _model.personalInfoModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: PersonalInfoWidget(
                             greetingText: FFLocalizations.of(context).getText(
                               'z4exo5ew' /* Change your information */,
@@ -133,7 +135,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         ),
                         wrapWithModel(
                           model: _model.intoleranciesModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: IntoleranciesWidget(),
                         ),
                         if (FFAppState().medicaments)
@@ -143,7 +145,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                             ),
                             child: wrapWithModel(
                               model: _model.medicationModel,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: MedicationWidget(
                                 shouldShowLink: true,
                                 whereToScroll: () async {

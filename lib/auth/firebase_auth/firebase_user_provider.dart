@@ -32,6 +32,11 @@ class Nu3FoodFirebaseUser extends BaseAuthUser {
   }
 
   @override
+  Future? updatePassword(String newPassword) async {
+    await user?.updatePassword(newPassword);
+  }
+
+  @override
   Future? sendEmailVerification() => user?.sendEmailVerification();
 
   @override

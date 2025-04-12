@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import 'dart:ui';
 import 'wizard_widget.dart' show WizardWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -18,7 +19,6 @@ import 'package:provider/provider.dart';
 class WizardModel extends FlutterFlowModel<WizardWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
@@ -60,7 +60,6 @@ class WizardModel extends FlutterFlowModel<WizardWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     columnController1?.dispose();
     componentHeadingModel1.dispose();
     avatarMenuModel.dispose();

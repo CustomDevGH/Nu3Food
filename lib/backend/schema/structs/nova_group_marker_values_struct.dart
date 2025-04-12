@@ -22,14 +22,18 @@ class NovaGroupMarkerValuesStruct extends FFFirebaseStruct {
   String? _name;
   String get name => _name ?? '';
   set name(String? val) => _name = val;
+
   bool hasName() => _name != null;
 
   // "values" field.
   List<String>? _values;
   List<String> get values => _values ?? const [];
   set values(List<String>? val) => _values = val;
-  void updateValues(Function(List<String>) updateFn) =>
-      updateFn(_values ??= []);
+
+  void updateValues(Function(List<String>) updateFn) {
+    updateFn(_values ??= []);
+  }
+
   bool hasValues() => _values != null;
 
   static NovaGroupMarkerValuesStruct fromMap(Map<String, dynamic> data) =>
@@ -56,7 +60,7 @@ class NovaGroupMarkerValuesStruct extends FFFirebaseStruct {
         'values': serializeParam(
           _values,
           ParamType.String,
-          true,
+          isList: true,
         ),
       }.withoutNulls;
 

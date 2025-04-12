@@ -3,6 +3,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -37,11 +38,9 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('NOTIFICATIONS_Notifications_ON_INIT_STAT');
       _model.alertList = await actions.parseXml();
-      setState(() {
-        _model.feedLoaded = true;
-        _model.rssFeed =
-            _model.alertList!.toList().cast<EURssFeedModelStruct>();
-      });
+      _model.feedLoaded = true;
+      _model.rssFeed = _model.alertList!.toList().cast<EURssFeedModelStruct>();
+      safeSetState(() {});
     });
   }
 
@@ -82,6 +81,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                 return Builder(
                   builder: (context) {
                     final alert = _model.rssFeed.toList();
+
                     return GridView.builder(
                       padding: EdgeInsets.zero,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

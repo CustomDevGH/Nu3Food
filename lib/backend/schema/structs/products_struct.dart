@@ -40,72 +40,89 @@ class ProductsStruct extends FFFirebaseStruct {
   List<String>? _addressLines;
   List<String> get addressLines => _addressLines ?? const [];
   set addressLines(List<String>? val) => _addressLines = val;
-  void updateAddressLines(Function(List<String>) updateFn) =>
-      updateFn(_addressLines ??= []);
+
+  void updateAddressLines(Function(List<String>) updateFn) {
+    updateFn(_addressLines ??= []);
+  }
+
   bool hasAddressLines() => _addressLines != null;
 
   // "Category" field.
   String? _category;
   String get category => _category ?? '';
   set category(String? val) => _category = val;
+
   bool hasCategory() => _category != null;
 
   // "FoodType" field.
   String? _foodType;
   String get foodType => _foodType ?? '';
   set foodType(String? val) => _foodType = val;
+
   bool hasFoodType() => _foodType != null;
 
   // "IsCompleted" field.
   bool? _isCompleted;
   bool get isCompleted => _isCompleted ?? false;
   set isCompleted(bool? val) => _isCompleted = val;
+
   bool hasIsCompleted() => _isCompleted != null;
 
   // "Name" field.
   String? _name;
   String get name => _name ?? '';
   set name(String? val) => _name = val;
+
   bool hasName() => _name != null;
 
   // "Ingredients" field.
   List<IngredientStruct>? _ingredients;
   List<IngredientStruct> get ingredients => _ingredients ?? const [];
   set ingredients(List<IngredientStruct>? val) => _ingredients = val;
-  void updateIngredients(Function(List<IngredientStruct>) updateFn) =>
-      updateFn(_ingredients ??= []);
+
+  void updateIngredients(Function(List<IngredientStruct>) updateFn) {
+    updateFn(_ingredients ??= []);
+  }
+
   bool hasIngredients() => _ingredients != null;
 
   // "Origin" field.
   String? _origin;
   String get origin => _origin ?? '';
   set origin(String? val) => _origin = val;
+
   bool hasOrigin() => _origin != null;
 
   // "Size" field.
   String? _size;
   String get size => _size ?? '';
   set size(String? val) => _size = val;
+
   bool hasSize() => _size != null;
 
   // "SizeUnit" field.
   String? _sizeUnit;
   String get sizeUnit => _sizeUnit ?? '';
   set sizeUnit(String? val) => _sizeUnit = val;
+
   bool hasSizeUnit() => _sizeUnit != null;
 
   // "Nutrients" field.
   List<NutrientStruct>? _nutrients;
   List<NutrientStruct> get nutrients => _nutrients ?? const [];
   set nutrients(List<NutrientStruct>? val) => _nutrients = val;
-  void updateNutrients(Function(List<NutrientStruct>) updateFn) =>
-      updateFn(_nutrients ??= []);
+
+  void updateNutrients(Function(List<NutrientStruct>) updateFn) {
+    updateFn(_nutrients ??= []);
+  }
+
   bool hasNutrients() => _nutrients != null;
 
   // "EAN" field.
   String? _ean;
   String get ean => _ean ?? '';
   set ean(String? val) => _ean = val;
+
   bool hasEan() => _ean != null;
 
   static ProductsStruct fromMap(Map<String, dynamic> data) => ProductsStruct(
@@ -150,7 +167,7 @@ class ProductsStruct extends FFFirebaseStruct {
         'AddressLines': serializeParam(
           _addressLines,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'Category': serializeParam(
           _category,
@@ -171,7 +188,7 @@ class ProductsStruct extends FFFirebaseStruct {
         'Ingredients': serializeParam(
           _ingredients,
           ParamType.DataStruct,
-          true,
+          isList: true,
         ),
         'Origin': serializeParam(
           _origin,
@@ -188,7 +205,7 @@ class ProductsStruct extends FFFirebaseStruct {
         'Nutrients': serializeParam(
           _nutrients,
           ParamType.DataStruct,
-          true,
+          isList: true,
         ),
         'EAN': serializeParam(
           _ean,

@@ -47,7 +47,7 @@ class _MedicationContainerWidgetState extends State<MedicationContainerWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: widget.safe!
+        color: widget!.safe!
             ? FlutterFlowTheme.of(context).success
             : FlutterFlowTheme.of(context).error,
         borderRadius: BorderRadius.circular(6.0),
@@ -55,7 +55,7 @@ class _MedicationContainerWidgetState extends State<MedicationContainerWidget> {
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(8.0, 5.0, 8.0, 5.0),
         child: Text(
-          widget.name!,
+          widget!.name!,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Roboto',
                 color: FlutterFlowTheme.of(context).primary,

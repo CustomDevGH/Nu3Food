@@ -22,14 +22,18 @@ class SynonymStruct extends FFFirebaseStruct {
   String? _name;
   String get name => _name ?? '';
   set name(String? val) => _name = val;
+
   bool hasName() => _name != null;
 
   // "synonyms" field.
   List<String>? _synonyms;
   List<String> get synonyms => _synonyms ?? const [];
   set synonyms(List<String>? val) => _synonyms = val;
-  void updateSynonyms(Function(List<String>) updateFn) =>
-      updateFn(_synonyms ??= []);
+
+  void updateSynonyms(Function(List<String>) updateFn) {
+    updateFn(_synonyms ??= []);
+  }
+
   bool hasSynonyms() => _synonyms != null;
 
   static SynonymStruct fromMap(Map<String, dynamic> data) => SynonymStruct(
@@ -54,7 +58,7 @@ class SynonymStruct extends FFFirebaseStruct {
         'synonyms': serializeParam(
           _synonyms,
           ParamType.String,
-          true,
+          isList: true,
         ),
       }.withoutNulls;
 

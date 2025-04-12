@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -58,7 +59,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
       children: [
         wrapWithModel(
           model: _model.componentHeadingModel1,
-          updateCallback: () => setState(() {}),
+          updateCallback: () => safeSetState(() {}),
           child: ComponentHeadingWidget(
             title: FFLocalizations.of(context).getText(
               'up263ymt' /* Medication */,
@@ -81,6 +82,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             child: Builder(
               builder: (context) {
                 final medication = FFAppState().Medication.toList();
+
                 return Wrap(
                   spacing: 8.0,
                   runSpacing: 12.0,
@@ -100,9 +102,8 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                       onTap: () async {
                         logFirebaseEvent(
                             'MEDICATION_Container_84djvphf_ON_TAP');
-                        setState(() {
-                          FFAppState().removeFromMedication(medicationItem);
-                        });
+                        FFAppState().removeFromMedication(medicationItem);
+                        safeSetState(() {});
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -143,9 +144,8 @@ class _MedicationWidgetState extends State<MedicationWidget> {
               () async {
                 logFirebaseEvent('MEDICATION_TextField_e4jugqa0_ON_TEXTFIE');
                 if (_model.textController.text.length > 1) {
-                  setState(() {
-                    _model.shouldShowSearch = true;
-                  });
+                  _model.shouldShowSearch = true;
+                  safeSetState(() {});
                   await widget.whereToScroll?.call();
                   safeSetState(() => _model.algoliaSearchResults = null);
                   await MedicationRecord.search(
@@ -154,11 +154,10 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                   )
                       .then((r) => _model.algoliaSearchResults = r)
                       .onError((_, __) => _model.algoliaSearchResults = [])
-                      .whenComplete(() => setState(() {}));
+                      .whenComplete(() => safeSetState(() {}));
                 } else {
-                  setState(() {
-                    _model.shouldShowSearch = false;
-                  });
+                  _model.shouldShowSearch = false;
+                  safeSetState(() {});
                 }
               },
             ),
@@ -237,6 +236,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
               final medicament = (_model.algoliaSearchResults?.toList() ?? [])
                   .take(3)
                   .toList();
+
               return SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -254,9 +254,8 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                         if (!FFAppState()
                             .Medication
                             .contains(medicamentItem.name)) {
-                          setState(() {
-                            FFAppState().addToMedication(medicamentItem.name);
-                          });
+                          FFAppState().addToMedication(medicamentItem.name);
+                          safeSetState(() {});
                         }
                       },
                       child: Container(
@@ -290,7 +289,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
               );
             },
           ),
-        if (widget.shouldShowLink ?? true)
+        if (widget!.shouldShowLink ?? true)
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
@@ -302,7 +301,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
               children: [
                 wrapWithModel(
                   model: _model.componentHeadingModel2,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: ComponentHeadingWidget(
                     title: FFLocalizations.of(context).getText(
                       'ugf1tiv5' /* eSKadra form */,

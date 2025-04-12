@@ -24,19 +24,23 @@ class SubNutritionStruct extends FFFirebaseStruct {
   String? _name;
   String get name => _name ?? '';
   set name(String? val) => _name = val;
+
   bool hasName() => _name != null;
 
   // "Value" field.
   double? _value;
   double get value => _value ?? 0.0;
   set value(double? val) => _value = val;
-  void incrementValue(double amount) => _value = value + amount;
+
+  void incrementValue(double amount) => value = value + amount;
+
   bool hasValue() => _value != null;
 
   // "Unit" field.
   String? _unit;
   String get unit => _unit ?? '';
   set unit(String? val) => _unit = val;
+
   bool hasUnit() => _unit != null;
 
   static SubNutritionStruct fromMap(Map<String, dynamic> data) =>

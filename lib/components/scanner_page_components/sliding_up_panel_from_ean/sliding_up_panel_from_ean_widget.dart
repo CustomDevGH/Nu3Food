@@ -4,6 +4,7 @@ import '/backend/schema/structs/index.dart';
 import '/components/scanner_detail/nutrition_table_row/nutrition_table_row_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -55,11 +56,10 @@ class _SlidingUpPanelFromEanWidgetState
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('SLIDING_UP_PANEL_FROM_EAN_SlidingUpPanel');
       _model.product = await actions.getProductById(
-        widget.doc!,
+        widget!.doc!,
       );
-      setState(() {
-        _model.productLoaded = true;
-      });
+      _model.productLoaded = true;
+      safeSetState(() {});
     });
 
     _model.expandableExpandableController1 =
@@ -99,11 +99,11 @@ class _SlidingUpPanelFromEanWidgetState
           bottomLeft: Radius.circular(20.0),
           bottomRight: Radius.circular(20.0),
           topLeft: Radius.circular(valueOrDefault<double>(
-            widget.isLive ? 0.0 : 20.0,
+            widget!.isLive ? 0.0 : 20.0,
             0.0,
           )),
           topRight: Radius.circular(valueOrDefault<double>(
-            widget.isLive ? 0.0 : 20.0,
+            widget!.isLive ? 0.0 : 20.0,
             0.0,
           )),
         ),
@@ -112,7 +112,7 @@ class _SlidingUpPanelFromEanWidgetState
         padding: EdgeInsetsDirectional.fromSTEB(24.0, 65.0, 24.0, 12.0),
         child: Stack(
           children: [
-            if (widget.isOpened == true)
+            if (widget!.isOpened == true)
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 0.0),
                 child: SingleChildScrollView(
@@ -142,7 +142,7 @@ class _SlidingUpPanelFromEanWidgetState
                                 ),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    widget.doc?.name,
+                                    widget!.doc?.name,
                                     'No name',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -162,7 +162,7 @@ class _SlidingUpPanelFromEanWidgetState
                                 valueOrDefault<String>(
                                   (String var1) {
                                     return var1.split("|").last;
-                                  }(widget.doc!.category),
+                                  }(widget!.doc!.category),
                                   'Milk',
                                 ).maybeHandleOverflow(
                                   maxChars: 25,
@@ -182,7 +182,7 @@ class _SlidingUpPanelFromEanWidgetState
                               ),
                               Text(
                                 valueOrDefault<String>(
-                                  widget.doc?.addressLines?.first,
+                                  widget!.doc?.addressLines?.firstOrNull,
                                   'No producer',
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -200,7 +200,7 @@ class _SlidingUpPanelFromEanWidgetState
                           ),
                         ),
                       ),
-                      if (widget.doc?.allergens?.length != 0)
+                      if (widget!.doc?.allergens?.length != 0)
                         Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           decoration: BoxDecoration(
@@ -231,11 +231,12 @@ class _SlidingUpPanelFromEanWidgetState
                                 builder: (context) {
                                   final allergen = functions
                                       .getEveryOtherFromList(
-                                          widget.doc!.allergens.toList(),
+                                          widget!.doc!.allergens.toList(),
                                           FFLocalizations.of(context)
                                                   .languageCode ==
                                               'en')
                                       .toList();
+
                                   return SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
                                     child: Row(
@@ -733,7 +734,7 @@ class _SlidingUpPanelFromEanWidgetState
                               custom_widgets.MedicationDisplay(
                                 width: double.infinity,
                                 height: 120.0,
-                                product: widget.doc,
+                                product: widget!.doc,
                               ),
                             ].divide(SizedBox(height: 12.0)),
                           ),
@@ -807,7 +808,8 @@ class _SlidingUpPanelFromEanWidgetState
                                 child: Builder(
                                   builder: (context) {
                                     final nutrition =
-                                        widget.doc?.nutrients?.toList() ?? [];
+                                        widget!.doc?.nutrients?.toList() ?? [];
+
                                     return Column(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
@@ -838,7 +840,7 @@ class _SlidingUpPanelFromEanWidgetState
                   ),
                 ),
               ),
-            if (widget.isOpened == false)
+            if (widget!.isOpened == false)
               Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -863,9 +865,11 @@ class _SlidingUpPanelFromEanWidgetState
                           children: [
                             AutoSizeText(
                               valueOrDefault<String>(
-                                widget.doc?.name,
+                                widget!.doc?.name,
                                 'No name',
-                              ).maybeHandleOverflow(maxChars: 20),
+                              ).maybeHandleOverflow(
+                                maxChars: 20,
+                              ),
                               maxLines: 1,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -879,9 +883,11 @@ class _SlidingUpPanelFromEanWidgetState
                             ),
                             AutoSizeText(
                               valueOrDefault<String>(
-                                widget.doc?.addressLines?.first,
+                                widget!.doc?.addressLines?.firstOrNull,
                                 'No producer',
-                              ).maybeHandleOverflow(maxChars: 25),
+                              ).maybeHandleOverflow(
+                                maxChars: 25,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -917,7 +923,7 @@ class _SlidingUpPanelFromEanWidgetState
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    if (widget.isOpened == false)
+                    if (widget!.isOpened == false)
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
