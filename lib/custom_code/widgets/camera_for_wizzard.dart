@@ -1,4 +1,6 @@
 // Automatic FlutterFlow imports
+import 'package:nu3_food/components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
+
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
