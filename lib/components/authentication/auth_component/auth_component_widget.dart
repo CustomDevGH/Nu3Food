@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'auth_component_model.dart';
 export 'auth_component_model.dart';
@@ -47,7 +46,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
         Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.transparent,
           ),
           child: Column(
@@ -90,7 +89,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Icon(
                           Icons.apple_outlined,
@@ -99,7 +98,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 10.0, 10.0, 10.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
@@ -141,14 +140,14 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color(0xFF1877F2),
+                    color: const Color(0xFF1877F2),
                     borderRadius: BorderRadius.circular(4.0),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Icon(
                           Icons.facebook_sharp,
@@ -157,7 +156,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 10.0, 0.0, 10.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
@@ -216,7 +215,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(7.6),
+                          padding: const EdgeInsets.all(7.6),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(0.0),
                             child: Image.asset(
@@ -228,7 +227,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 10.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -238,7 +237,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFF757575),
+                                  color: const Color(0xFF757575),
                                   fontSize: 14.0,
                                   letterSpacing: 0.32,
                                   fontWeight: FontWeight.w500,
@@ -273,7 +272,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                     borderRadius: BorderRadius.circular(4.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(12.0),
+                    padding: const EdgeInsets.all(12.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -297,7 +296,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                   ),
                 ),
               ),
-            ].divide(SizedBox(height: 12.0)),
+            ].divide(const SizedBox(height: 12.0)),
           ),
         ),
         if (_model.loading)
@@ -314,9 +313,9 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                   sigmaX: 2.0,
                   sigmaY: 2.0,
                 ),
-                child: Align(
+                child: const Align(
                   alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Container(
+                  child: SizedBox(
                     width: 150.0,
                     height: 150.0,
                     child: custom_widgets.LoadingIndicator(

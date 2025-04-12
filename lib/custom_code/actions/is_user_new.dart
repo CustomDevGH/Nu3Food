@@ -1,12 +1,6 @@
 // Automatic FlutterFlow imports
-import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import 'index.dart'; // Imports other custom actions
-import '/flutter_flow/custom_functions.dart'; // Imports custom functions
-import 'package:flutter/material.dart';
+// Imports other custom actions
+// Imports custom functions
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
@@ -18,6 +12,6 @@ Future<bool> isUserNew() async {
   return user != null &&
       user.metadata.creationTime != null &&
       user.metadata.creationTime!.isAfter(DateTime.now().subtract(
-        Duration(minutes: 1),
+        const Duration(minutes: 1),
       ));
 }

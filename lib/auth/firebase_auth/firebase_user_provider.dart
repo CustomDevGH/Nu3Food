@@ -8,6 +8,7 @@ export '../base_auth_user_provider.dart';
 class Nu3FoodFirebaseUser extends BaseAuthUser {
   Nu3FoodFirebaseUser(this.user);
   User? user;
+  @override
   bool get loggedIn => user != null;
 
   @override

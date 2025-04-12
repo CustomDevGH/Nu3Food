@@ -1,10 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'open_scanner_button_model.dart';
 export 'open_scanner_button_model.dart';
 
@@ -41,7 +38,7 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.9),
+      alignment: const AlignmentDirectional(0.0, 0.9),
       child: InkWell(
         splashColor: Colors.transparent,
         focusColor: Colors.transparent,
@@ -60,7 +57,7 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
             borderRadius: BorderRadius.circular(76.0),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -75,14 +72,14 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       '83m0yhl8' /* Open scanner */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
-                          color: Color(0xFFB7C1FA),
+                          color: const Color(0xFFB7C1FA),
                           fontSize: 18.0,
                           letterSpacing: 0.15,
                           fontWeight: FontWeight.w800,

@@ -5,13 +5,10 @@ import '/components/medication/medication_widget.dart';
 import '/components/scanner_page_components/open_scanner_button/open_scanner_button_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_model.dart';
 export 'home_model.dart';
@@ -73,13 +70,13 @@ class _HomeWidgetState extends State<HomeWidget> {
           child: Container(
             width: double.infinity,
             height: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xFFF7F7F7),
             ),
             child: Stack(
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                   child: SingleChildScrollView(
                     controller: _model.columnController,
                     child: Column(
@@ -89,9 +86,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                         wrapWithModel(
                           model: _model.headerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: HeaderWidget(),
+                          child: const HeaderWidget(),
                         ),
-                        if (FFAppState().ScannedItems.length != 0)
+                        if (FFAppState().ScannedItems.isNotEmpty)
                           Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,32 +112,32 @@ class _HomeWidgetState extends State<HomeWidget> {
                               Container(
                                 width: double.infinity,
                                 height: 238.0,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.transparent,
                                 ),
                                 child: wrapWithModel(
                                   model: _model.scannedItemsModel,
                                   updateCallback: () => safeSetState(() {}),
                                   updateOnChange: true,
-                                  child: ScannedItemsWidget(),
+                                  child: const ScannedItemsWidget(),
                                 ),
                               ),
-                            ].divide(SizedBox(height: 12.0)),
+                            ].divide(const SizedBox(height: 12.0)),
                           ),
                         Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: wrapWithModel(
                             model: _model.intoleranciesModel,
                             updateCallback: () => safeSetState(() {}),
                             updateOnChange: true,
-                            child: IntoleranciesWidget(),
+                            child: const IntoleranciesWidget(),
                           ),
                         ),
                         if (FFAppState().medicaments)
                           Container(
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: wrapWithModel(
                               model: _model.medicationModel,
                               updateCallback: () => safeSetState(() {}),
@@ -152,7 +149,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   await _model.columnController?.animateTo(
                                     _model.columnController!.position
                                         .maxScrollExtent,
-                                    duration: Duration(milliseconds: 100),
+                                    duration: const Duration(milliseconds: 100),
                                     curve: Curves.ease,
                                   );
                                 },
@@ -160,8 +157,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                             ),
                           ),
                       ]
-                          .divide(SizedBox(height: 28.0))
-                          .addToEnd(SizedBox(height: 90.0)),
+                          .divide(const SizedBox(height: 28.0))
+                          .addToEnd(const SizedBox(height: 90.0)),
                     ),
                   ),
                 ),
@@ -169,15 +166,15 @@ class _HomeWidgetState extends State<HomeWidget> {
                     ? MediaQuery.viewInsetsOf(context).bottom > 0
                     : _isKeyboardVisible))
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: wrapWithModel(
                       model: _model.openScannerButtonModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: OpenScannerButtonWidget(),
+                      child: const OpenScannerButtonWidget(),
                     ),
                   ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.7),
+                  alignment: const AlignmentDirectional(0.0, 0.7),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -204,7 +201,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         borderRadius: BorderRadius.circular(76.0),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             15.0, 0.0, 15.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -220,7 +217,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   5.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
@@ -230,7 +227,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Roboto',
-                                      color: Color(0xFFB7C1FA),
+                                      color: const Color(0xFFB7C1FA),
                                       fontSize: 15.0,
                                       letterSpacing: 0.15,
                                       fontWeight: FontWeight.w800,

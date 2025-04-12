@@ -1,11 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'sub_settings_model.dart';
 export 'sub_settings_model.dart';
 
@@ -56,7 +53,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
         ),
         actions: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 16.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 16.0, 0.0),
             child: Container(
               width: 44.0,
               height: 44.0,
@@ -69,17 +66,17 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.all(2.0),
+                padding: const EdgeInsets.all(2.0),
                 child: Container(
                   width: 50.0,
                   height: 50.0,
                   clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                   ),
                   child: CachedNetworkImage(
-                    fadeInDuration: Duration(milliseconds: 500),
-                    fadeOutDuration: Duration(milliseconds: 500),
+                    fadeInDuration: const Duration(milliseconds: 500),
+                    fadeOutDuration: const Duration(milliseconds: 500),
                     imageUrl: 'https://picsum.photos/seed/934/600',
                     fit: BoxFit.fitWidth,
                   ),
@@ -98,7 +95,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 12.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 12.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -114,7 +111,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                         ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'bg589h68' /* casper@ghustbusters.com */,
@@ -130,7 +127,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -139,7 +136,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                     BoxShadow(
                       blurRadius: 0.0,
                       color: FlutterFlowTheme.of(context).alternate,
-                      offset: Offset(
+                      offset: const Offset(
                         0.0,
                         1.0,
                       ),
@@ -148,7 +145,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                 ),
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 12.0),
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 12.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       '62n0b6f1' /* My Account Information */,
@@ -162,7 +159,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -171,7 +168,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                     BoxShadow(
                       blurRadius: 0.0,
                       color: FlutterFlowTheme.of(context).alternate,
-                      offset: Offset(
+                      offset: const Offset(
                         0.0,
                         1.0,
                       ),
@@ -180,7 +177,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                 ),
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 12.0),
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 12.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       '1ihorlxo' /* Support */,
@@ -197,7 +194,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 70.0,
@@ -207,7 +204,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                         BoxShadow(
                           blurRadius: 0.0,
                           color: FlutterFlowTheme.of(context).alternate,
-                          offset: Offset(
+                          offset: const Offset(
                             0.0,
                             1.0,
                           ),
@@ -217,7 +214,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                     ),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -240,7 +237,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  alignment: const AlignmentDirectional(1.0, 0.0),
                                   child: Icon(
                                     Icons.arrow_forward_ios,
                                     color: FlutterFlowTheme.of(context)
@@ -259,7 +256,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
               ],
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
               child: Container(
                 width: double.infinity,
                 height: 70.0,
@@ -269,7 +266,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                     BoxShadow(
                       blurRadius: 0.0,
                       color: FlutterFlowTheme.of(context).alternate,
-                      offset: Offset(
+                      offset: const Offset(
                         0.0,
                         1.0,
                       ),
@@ -278,7 +275,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                   shape: BoxShape.rectangle,
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -301,7 +298,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                           ),
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(1.0, 0.0),
+                              alignment: const AlignmentDirectional(1.0, 0.0),
                               child: Icon(
                                 Icons.arrow_forward_ios,
                                 color:
@@ -318,7 +315,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
               child: Container(
                 width: double.infinity,
                 height: 70.0,
@@ -328,7 +325,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                     BoxShadow(
                       blurRadius: 0.0,
                       color: FlutterFlowTheme.of(context).alternate,
-                      offset: Offset(
+                      offset: const Offset(
                         0.0,
                         1.0,
                       ),
@@ -337,7 +334,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                   shape: BoxShape.rectangle,
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -357,7 +354,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                           ),
                           Expanded(
                             child: Align(
-                              alignment: AlignmentDirectional(1.0, 0.0),
+                              alignment: const AlignmentDirectional(1.0, 0.0),
                               child: Icon(
                                 Icons.arrow_forward_ios,
                                 color:
@@ -374,7 +371,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Container(
                 width: double.infinity,
                 height: 50.0,
@@ -387,7 +384,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(4.0),
+                  padding: const EdgeInsets.all(4.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -414,7 +411,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                                 size: 16.0,
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -456,7 +453,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                                 size: 16.0,
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -482,7 +479,7 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -498,9 +495,9 @@ class _SubSettingsWidgetState extends State<SubSettingsWidget> {
                       width: 130.0,
                       height: 50.0,
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       textStyle: FlutterFlowTheme.of(context)
                           .titleSmall

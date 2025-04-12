@@ -1,12 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'avatar_menu_model.dart';
 export 'avatar_menu_model.dart';
@@ -46,7 +44,7 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
 
     return Container(
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.transparent,
       ),
       child: Column(
@@ -71,7 +69,7 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
               builder: (context) {
                 final image = functions
                     .getListOfAvatars(currentUserPhoto)
-                    .where((e) => e != null && e != '')
+                    .where((e) => e != '')
                     .toList();
 
                 return Wrap(
@@ -85,7 +83,7 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                   clipBehavior: Clip.none,
                   children: List.generate(image.length, (imageIndex) {
                     final imageItem = image[imageIndex];
-                    return Container(
+                    return SizedBox(
                       width: 47.5,
                       height: 47.5,
                       child: Stack(
@@ -101,7 +99,7 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                               FFAppState().imageName = imageItem;
                               safeSetState(() {});
                             },
-                            child: Container(
+                            child: SizedBox(
                               width: 47.5,
                               height: 47.5,
                               child: custom_widgets.ImageFromString(
@@ -116,7 +114,7 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                           ),
                           if (imageItem == FFAppState().imageName)
                             Align(
-                              alignment: AlignmentDirectional(1.0, -1.0),
+                              alignment: const AlignmentDirectional(1.0, -1.0),
                               child: Container(
                                 width: 18.7,
                                 height: 18.7,
@@ -125,7 +123,7 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: SvgPicture.asset(
@@ -146,7 +144,7 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
               },
             ),
           ),
-        ].divide(SizedBox(height: 12.0)),
+        ].divide(const SizedBox(height: 12.0)),
       ),
     );
   }

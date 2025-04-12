@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
-import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -88,7 +87,7 @@ class SynonymStruct extends FFFirebaseStruct {
           ParamType.String,
           true,
         ),
-        firestoreUtilData: FirestoreUtilData(
+        firestoreUtilData: const FirestoreUtilData(
           clearUnsetFields: false,
           create: true,
         ),

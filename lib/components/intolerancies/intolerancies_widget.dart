@@ -3,9 +3,7 @@ import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'intolerancies_model.dart';
 export 'intolerancies_model.dart';
@@ -45,7 +43,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
 
     return Container(
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.transparent,
       ),
       child: Column(
@@ -68,7 +66,7 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
             child: FlutterFlowChoiceChips(
               options: [
                 ChipData(FFLocalizations.of(context).getText(
@@ -122,38 +120,38 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
                 _model.updatePage(() {});
               },
               selectedChipStyle: ChipStyle(
-                backgroundColor: Color(0xFF382F73),
+                backgroundColor: const Color(0xFF382F73),
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Roboto',
-                      color: Color(0xFFF7F7F7),
+                      color: const Color(0xFFF7F7F7),
                       letterSpacing: 0.15,
                       fontWeight: FontWeight.w800,
                       lineHeight: 1.5,
                     ),
-                iconColor: Color(0x00000000),
+                iconColor: const Color(0x00000000),
                 iconSize: 0.0,
                 labelPadding:
-                    EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
+                    const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
                 elevation: 0.0,
-                borderColor: Color(0xFF382F73),
+                borderColor: const Color(0xFF382F73),
                 borderWidth: 1.3,
                 borderRadius: BorderRadius.circular(6.0),
               ),
               unselectedChipStyle: ChipStyle(
-                backgroundColor: Color(0x00000000),
+                backgroundColor: const Color(0x00000000),
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Roboto',
-                      color: Color(0xFFAFACC7),
+                      color: const Color(0xFFAFACC7),
                       letterSpacing: 0.15,
                       fontWeight: FontWeight.w800,
                       lineHeight: 1.5,
                     ),
-                iconColor: Color(0x00000000),
+                iconColor: const Color(0x00000000),
                 iconSize: 0.0,
                 labelPadding:
-                    EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
+                    const EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
                 elevation: 0.0,
-                borderColor: Color(0xFFAFACC7),
+                borderColor: const Color(0xFFAFACC7),
                 borderWidth: 1.3,
                 borderRadius: BorderRadius.circular(6.0),
               ),

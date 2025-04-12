@@ -1,12 +1,7 @@
 // Automatic FlutterFlow imports
-import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import 'index.dart'; // Imports other custom widgets
-import '/custom_code/actions/index.dart'; // Imports custom actions
-import '/flutter_flow/custom_functions.dart'; // Imports custom functions
+// Imports other custom widgets
+// Imports custom actions
+// Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
@@ -18,15 +13,14 @@ import 'package:flutter/services.dart';
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 
 class CameraView extends StatefulWidget {
-  CameraView(
-      {Key? key,
+  const CameraView(
+      {super.key,
       required this.customPaint,
       required this.onImage,
       this.onCameraFeedReady,
       this.onCameraLensDirectionChanged,
       this.isTorchOn = false,
-      this.initialCameraLensDirection = CameraLensDirection.back})
-      : super(key: key);
+      this.initialCameraLensDirection = CameraLensDirection.back});
 
   final bool isTorchOn;
   final CustomPaint? customPaint;
@@ -43,7 +37,7 @@ class _CameraViewState extends State<CameraView> {
   static List<CameraDescription> _cameras = [];
   CameraController? _controller;
   int _cameraIndex = -1;
-  bool _changingCameraLens = false;
+  final bool _changingCameraLens = false;
 
   @override
   void initState() {
@@ -102,8 +96,8 @@ class _CameraViewState extends State<CameraView> {
       child: Stack(
         children: <Widget>[
           _changingCameraLens
-              ? Center(
-                  child: const Text('Changing camera lens'),
+              ? const Center(
+                  child: Text('Changing camera lens'),
                 )
               : Positioned.fill(
                   child: Transform.scale(

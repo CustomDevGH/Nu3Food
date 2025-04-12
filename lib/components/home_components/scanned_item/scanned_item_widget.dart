@@ -2,16 +2,13 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'scanned_item_model.dart';
 export 'scanned_item_model.dart';
 
@@ -45,11 +42,11 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('SCANNED_ITEM_ScannedItem_ON_INIT_STATE');
       _model.newFood = await actions.getFoodFromEAN(
-        widget!.scannedItem!.ean,
+        widget.scannedItem!.ean,
         false,
       );
       _model.foodSafe = await actions.isFoodSafe(
-        _model.newFood?.allergens?.toList(),
+        _model.newFood?.allergens.toList(),
       );
       _model.loadedEan = true;
       _model.isFoodSafe = _model.foodSafe!;
@@ -76,7 +73,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
         builder: (context) {
           if (_model.loadedEan) {
             return Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,7 +87,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-1.0, -1.0),
+                            alignment: const AlignmentDirectional(-1.0, -1.0),
                             child: Container(
                               width: 28.0,
                               height: 28.0,
@@ -99,7 +96,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
                                   child: SvgPicture.asset(
@@ -114,14 +111,14 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                           ),
                           Container(
                             width: 150.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Colors.transparent,
                             ),
                             child: AutoSizeText(
                               valueOrDefault<String>(
                                 dateTimeFormat(
                                   "EEEE, H:mm",
-                                  widget!.scannedItem?.lastScanned,
+                                  widget.scannedItem?.lastScanned,
                                   locale:
                                       FFLocalizations.of(context).languageCode,
                                 ),
@@ -131,14 +128,14 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Roboto',
-                                    color: Color(0xFFC4C4C4),
+                                    color: const Color(0xFFC4C4C4),
                                     fontSize: 11.0,
                                     letterSpacing: 1.05,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
                           ),
-                        ].divide(SizedBox(width: 8.0)),
+                        ].divide(const SizedBox(width: 8.0)),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
@@ -152,7 +149,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                                   .primaryBackground,
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 15.0, 0.0, 0.0),
                               child: AutoSizeText(
                                 valueOrDefault<String>(
@@ -192,7 +189,7 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                           ),
                           Text(
                             valueOrDefault<String>(
-                              _model.food?.addressLines?.firstOrNull,
+                              _model.food?.addressLines.firstOrNull,
                               'Couldn\'t find producer',
                             ),
                             maxLines: 1,
@@ -200,15 +197,15 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFFAFACC7),
+                                  color: const Color(0xFFAFACC7),
                                   fontSize: 12.64,
                                   letterSpacing: 0.5,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(SizedBox(height: 6.0)),
+                        ].divide(const SizedBox(height: 6.0)),
                       ),
-                    ].divide(SizedBox(height: 6.0)),
+                    ].divide(const SizedBox(height: 6.0)),
                   ),
 
                   // this widget has only sample height, because flutterflow is stupid af so there is something i guess
@@ -216,9 +213,9 @@ class _ScannedItemWidgetState extends State<ScannedItemWidget> {
                     width: double.infinity,
                     height: 12.0,
                     allergens: _model.newFood!.allergens,
-                    ean: widget!.scannedItem?.ean,
+                    ean: widget.scannedItem?.ean,
                   ),
-                ].divide(SizedBox(height: 24.0)),
+                ].divide(const SizedBox(height: 24.0)),
               ),
             );
           } else {

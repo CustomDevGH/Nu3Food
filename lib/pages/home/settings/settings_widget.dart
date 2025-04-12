@@ -1,18 +1,14 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/avatar_menu/avatar_menu_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
 import '/components/medication/medication_widget.dart';
 import '/components/personal_info/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'settings_model.dart';
 export 'settings_model.dart';
@@ -70,11 +66,11 @@ class _SettingsWidgetState extends State<SettingsWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0.0),
+          preferredSize: const Size.fromHeight(0.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
-            actions: [],
+            actions: const [],
             centerTitle: false,
             toolbarHeight: 0.0,
             elevation: 0.0,
@@ -87,7 +83,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
               color: FlutterFlowTheme.of(context).primaryBackground,
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24.0, 70.0, 24.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 70.0, 24.0, 0.0),
               child: Stack(
                 children: [
                   SingleChildScrollView(
@@ -122,7 +118,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         wrapWithModel(
                           model: _model.avatarMenuModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: AvatarMenuWidget(),
+                          child: const AvatarMenuWidget(),
                         ),
                         wrapWithModel(
                           model: _model.personalInfoModel,
@@ -136,11 +132,11 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         wrapWithModel(
                           model: _model.intoleranciesModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: IntoleranciesWidget(),
+                          child: const IntoleranciesWidget(),
                         ),
                         if (FFAppState().medicaments)
                           Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Colors.transparent,
                             ),
                             child: wrapWithModel(
@@ -154,7 +150,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   await _model.columnController?.animateTo(
                                     _model.columnController!.position
                                         .maxScrollExtent,
-                                    duration: Duration(milliseconds: 100),
+                                    duration: const Duration(milliseconds: 100),
                                     curve: Curves.ease,
                                   );
                                 },
@@ -201,7 +197,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               borderRadius: BorderRadius.circular(6.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 10.0, 12.0, 10.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
@@ -212,7 +208,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Roboto',
-                                      color: Color(0xFFB7C1FA),
+                                      color: const Color(0xFFB7C1FA),
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                     ),
@@ -221,15 +217,15 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           ),
                         ),
                       ]
-                          .divide(SizedBox(height: 24.0))
-                          .addToEnd(SizedBox(height: 70.0)),
+                          .divide(const SizedBox(height: 24.0))
+                          .addToEnd(const SizedBox(height: 70.0)),
                     ),
                   ),
                   if (!(isWeb
                       ? MediaQuery.viewInsetsOf(context).bottom > 0
                       : _isKeyboardVisible))
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.95),
+                      alignment: const AlignmentDirectional(0.0, 0.95),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -248,7 +244,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                             borderRadius: BorderRadius.circular(6.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 10.0, 12.0, 10.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -259,7 +255,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Roboto',
-                                    color: Color(0xFFB7C1FA),
+                                    color: const Color(0xFFB7C1FA),
                                     letterSpacing: 0.15,
                                     fontWeight: FontWeight.w800,
                                     lineHeight: 1.5,
@@ -270,7 +266,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       ),
                     ),
                   Align(
-                    alignment: AlignmentDirectional(1.0, -1.0),
+                    alignment: const AlignmentDirectional(1.0, -1.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -285,12 +281,12 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       child: Container(
                         width: 50.0,
                         height: 50.0,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color(0xFFB7C1FA),
                           shape: BoxShape.circle,
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: SvgPicture.asset(

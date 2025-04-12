@@ -1,10 +1,7 @@
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'nutrition_table_row_model.dart';
 export 'nutrition_table_row_model.dart';
 
@@ -46,11 +43,11 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.transparent,
       ),
       child: Padding(
-        padding: EdgeInsets.all(4.0),
+        padding: const EdgeInsets.all(4.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -60,14 +57,14 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${widget!.nutrient?.nutrientType}'.maybeHandleOverflow(
+                  '${widget.nutrient?.nutrientType}'.maybeHandleOverflow(
                     maxChars: 15,
                     replacement: '…',
                   ),
                   maxLines: 1,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Roboto',
-                        color: Color(0xFFAFACC7),
+                        color: const Color(0xFFAFACC7),
                         fontSize: 14.0,
                         letterSpacing: 0.25,
                         fontWeight: FontWeight.normal,
@@ -75,10 +72,10 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
                       ),
                 ),
                 Text(
-                  '${widget!.nutrient?.value}${widget!.nutrient?.unit}',
+                  '${widget.nutrient?.value}${widget.nutrient?.unit}',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Roboto',
-                        color: Color(0xFFAFACC7),
+                        color: const Color(0xFFAFACC7),
                         fontSize: 14.0,
                         letterSpacing: 0.25,
                         fontWeight: FontWeight.normal,
@@ -90,7 +87,7 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
             Container(
               width: double.infinity,
               height: 1.0,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xFFDEDEDE),
               ),
             ),

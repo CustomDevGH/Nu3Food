@@ -1,10 +1,8 @@
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/scanner_detail/nutrition_table_row/nutrition_table_row_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -12,7 +10,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sliding_up_panel_from_ean_model.dart';
 export 'sliding_up_panel_from_ean_model.dart';
@@ -24,8 +21,8 @@ class SlidingUpPanelFromEanWidget extends StatefulWidget {
     bool? isSafe,
     required this.doc,
     bool? isLive,
-  })  : this.isSafe = isSafe ?? false,
-        this.isLive = isLive ?? true;
+  })  : isSafe = isSafe ?? false,
+        isLive = isLive ?? true;
 
   final bool? isOpened;
   final bool isSafe;
@@ -56,7 +53,7 @@ class _SlidingUpPanelFromEanWidgetState
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('SLIDING_UP_PANEL_FROM_EAN_SlidingUpPanel');
       _model.product = await actions.getProductById(
-        widget!.doc!,
+        widget.doc!,
       );
       _model.productLoaded = true;
       safeSetState(() {});
@@ -87,34 +84,34 @@ class _SlidingUpPanelFromEanWidgetState
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color(0xFFF7F7F7),
+            const Color(0xFFF7F7F7),
             FlutterFlowTheme.of(context).lNWhite,
             FlutterFlowTheme.of(context).primaryBackground
           ],
-          stops: [0.0, 0.5, 1.0],
-          begin: AlignmentDirectional(0.0, -1.0),
-          end: AlignmentDirectional(0, 1.0),
+          stops: const [0.0, 0.5, 1.0],
+          begin: const AlignmentDirectional(0.0, -1.0),
+          end: const AlignmentDirectional(0, 1.0),
         ),
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20.0),
-          bottomRight: Radius.circular(20.0),
+          bottomLeft: const Radius.circular(20.0),
+          bottomRight: const Radius.circular(20.0),
           topLeft: Radius.circular(valueOrDefault<double>(
-            widget!.isLive ? 0.0 : 20.0,
+            widget.isLive ? 0.0 : 20.0,
             0.0,
           )),
           topRight: Radius.circular(valueOrDefault<double>(
-            widget!.isLive ? 0.0 : 20.0,
+            widget.isLive ? 0.0 : 20.0,
             0.0,
           )),
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(24.0, 65.0, 24.0, 12.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(24.0, 65.0, 24.0, 12.0),
         child: Stack(
           children: [
-            if (widget!.isOpened == true)
+            if (widget.isOpened == true)
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 0.0),
                 child: SingleChildScrollView(
                   primary: false,
                   child: Column(
@@ -124,10 +121,10 @@ class _SlidingUpPanelFromEanWidgetState
                     children: [
                       Container(
                         width: double.infinity,
-                        constraints: BoxConstraints(
+                        constraints: const BoxConstraints(
                           minWidth: double.infinity,
                         ),
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.transparent,
                         ),
                         child: SingleChildScrollView(
@@ -142,7 +139,7 @@ class _SlidingUpPanelFromEanWidgetState
                                 ),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    widget!.doc?.name,
+                                    widget.doc?.name,
                                     'No name',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -162,7 +159,7 @@ class _SlidingUpPanelFromEanWidgetState
                                 valueOrDefault<String>(
                                   (String var1) {
                                     return var1.split("|").last;
-                                  }(widget!.doc!.category),
+                                  }(widget.doc!.category),
                                   'Milk',
                                 ).maybeHandleOverflow(
                                   maxChars: 25,
@@ -173,7 +170,7 @@ class _SlidingUpPanelFromEanWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Roboto',
-                                      color: Color(0xFFAFACC7),
+                                      color: const Color(0xFFAFACC7),
                                       fontSize: 18.0,
                                       letterSpacing: 0.15,
                                       fontWeight: FontWeight.bold,
@@ -182,14 +179,14 @@ class _SlidingUpPanelFromEanWidgetState
                               ),
                               Text(
                                 valueOrDefault<String>(
-                                  widget!.doc?.addressLines?.firstOrNull,
+                                  widget.doc?.addressLines.firstOrNull,
                                   'No producer',
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Roboto',
-                                      color: Color(0xFFAFACC7),
+                                      color: const Color(0xFFAFACC7),
                                       fontSize: 16.0,
                                       letterSpacing: 0.15,
                                       fontWeight: FontWeight.bold,
@@ -200,10 +197,10 @@ class _SlidingUpPanelFromEanWidgetState
                           ),
                         ),
                       ),
-                      if (widget!.doc?.allergens?.length != 0)
+                      if (widget.doc!.allergens.isNotEmpty)
                         Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: Column(
@@ -231,7 +228,7 @@ class _SlidingUpPanelFromEanWidgetState
                                 builder: (context) {
                                   final allergen = functions
                                       .getEveryOtherFromList(
-                                          widget!.doc!.allergens.toList(),
+                                          widget.doc!.allergens.toList(),
                                           FFLocalizations.of(context)
                                                   .languageCode ==
                                               'en')
@@ -263,7 +260,7 @@ class _SlidingUpPanelFromEanWidgetState
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 5.0, 8.0, 5.0),
                                             child: Text(
                                               allergenItem,
@@ -291,7 +288,7 @@ class _SlidingUpPanelFromEanWidgetState
                                             ),
                                           ),
                                         );
-                                      }).divide(SizedBox(width: 8.0)),
+                                      }).divide(const SizedBox(width: 8.0)),
                                     ),
                                   );
                                 },
@@ -301,7 +298,7 @@ class _SlidingUpPanelFromEanWidgetState
                         ),
                       if (_model.productLoaded)
                         Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: Column(
@@ -327,7 +324,7 @@ class _SlidingUpPanelFromEanWidgetState
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                           ),
-                                          child: Container(
+                                          child: SizedBox(
                                             width: double.infinity,
                                             height: double.infinity,
                                             child:
@@ -335,7 +332,7 @@ class _SlidingUpPanelFromEanWidgetState
                                               width: double.infinity,
                                               height: double.infinity,
                                               name:
-                                                  'nutriscore-${_model.product?.nutriscoreGrade?.name}.png',
+                                                  'nutriscore-${_model.product?.nutriscoreGrade.name}.png',
                                               isInternet: false,
                                             ),
                                           ),
@@ -350,7 +347,7 @@ class _SlidingUpPanelFromEanWidgetState
                                         ),
                                         expanded: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -522,11 +519,11 @@ class _SlidingUpPanelFromEanWidgetState
                                                         ),
                                               ),
                                             ]
-                                                .divide(SizedBox(height: 15.0))
-                                                .around(SizedBox(height: 15.0)),
+                                                .divide(const SizedBox(height: 15.0))
+                                                .around(const SizedBox(height: 15.0)),
                                           ),
                                         ),
-                                        theme: ExpandableThemeData(
+                                        theme: const ExpandableThemeData(
                                           tapHeaderToExpand: true,
                                           tapBodyToExpand: true,
                                           tapBodyToCollapse: true,
@@ -541,7 +538,7 @@ class _SlidingUpPanelFromEanWidgetState
                                 ),
                               if (_model.product?.novaGrade != -1)
                                 Container(
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.transparent,
                                   ),
                                   child: Container(
@@ -558,7 +555,7 @@ class _SlidingUpPanelFromEanWidgetState
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                           ),
-                                          child: Container(
+                                          child: SizedBox(
                                             width: double.infinity,
                                             height: double.infinity,
                                             child:
@@ -566,7 +563,7 @@ class _SlidingUpPanelFromEanWidgetState
                                               width: double.infinity,
                                               height: double.infinity,
                                               name:
-                                                  'nova-group-${_model.product?.novaGrade?.toString()}.png',
+                                                  'nova-group-${_model.product?.novaGrade.toString()}.png',
                                               isInternet: false,
                                             ),
                                           ),
@@ -583,7 +580,7 @@ class _SlidingUpPanelFromEanWidgetState
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 20.0, 10.0, 20.0),
                                               child: Text(
@@ -609,7 +606,7 @@ class _SlidingUpPanelFromEanWidgetState
                                             ),
                                           ],
                                         ),
-                                        theme: ExpandableThemeData(
+                                        theme: const ExpandableThemeData(
                                           tapHeaderToExpand: true,
                                           tapBodyToExpand: true,
                                           tapBodyToCollapse: true,
@@ -625,7 +622,7 @@ class _SlidingUpPanelFromEanWidgetState
                               if (_model.product?.ecoScoreGrade !=
                                   EcoScoreGrades.none)
                                 Container(
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.transparent,
                                   ),
                                   child: Container(
@@ -655,7 +652,7 @@ class _SlidingUpPanelFromEanWidgetState
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                           ),
-                                          child: Container(
+                                          child: SizedBox(
                                             width: double.infinity,
                                             height: double.infinity,
                                             child:
@@ -663,7 +660,7 @@ class _SlidingUpPanelFromEanWidgetState
                                               width: double.infinity,
                                               height: double.infinity,
                                               name:
-                                                  'Eco-score_${_model.product?.ecoScoreGrade?.name}.png',
+                                                  'Eco-score_${_model.product?.ecoScoreGrade.name}.png',
                                               isInternet: false,
                                             ),
                                           ),
@@ -682,13 +679,13 @@ class _SlidingUpPanelFromEanWidgetState
                                                       .override(
                                                         fontFamily: 'Roboto',
                                                         color:
-                                                            Color(0x8A000000),
+                                                            const Color(0x8A000000),
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ],
                                         ),
-                                        theme: ExpandableThemeData(
+                                        theme: const ExpandableThemeData(
                                           tapHeaderToExpand: true,
                                           tapBodyToExpand: true,
                                           tapBodyToCollapse: true,
@@ -705,10 +702,10 @@ class _SlidingUpPanelFromEanWidgetState
                           ),
                         ),
                       if (FFAppState().medicaments &&
-                          (FFAppState().Medication.length != 0))
+                          (FFAppState().Medication.isNotEmpty))
                         Container(
                           width: double.infinity,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: Column(
@@ -734,17 +731,17 @@ class _SlidingUpPanelFromEanWidgetState
                               custom_widgets.MedicationDisplay(
                                 width: double.infinity,
                                 height: 120.0,
-                                product: widget!.doc,
+                                product: widget.doc,
                               ),
-                            ].divide(SizedBox(height: 12.0)),
+                            ].divide(const SizedBox(height: 12.0)),
                           ),
                         ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: Column(
@@ -808,7 +805,7 @@ class _SlidingUpPanelFromEanWidgetState
                                 child: Builder(
                                   builder: (context) {
                                     final nutrition =
-                                        widget!.doc?.nutrients?.toList() ?? [];
+                                        widget.doc?.nutrients.toList() ?? [];
 
                                     return Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -825,7 +822,7 @@ class _SlidingUpPanelFromEanWidgetState
                                               'Keycb7_${nutritionIndex}_of_${nutrition.length}'),
                                           nutrient: nutritionItem,
                                         );
-                                      }).divide(SizedBox(height: 4.0)),
+                                      }).divide(const SizedBox(height: 4.0)),
                                     );
                                   },
                                 ),
@@ -835,12 +832,12 @@ class _SlidingUpPanelFromEanWidgetState
                         ),
                       ),
                     ]
-                        .divide(SizedBox(height: 16.0))
-                        .addToEnd(SizedBox(height: 50.0)),
+                        .divide(const SizedBox(height: 16.0))
+                        .addToEnd(const SizedBox(height: 50.0)),
                   ),
                 ),
               ),
-            if (widget!.isOpened == false)
+            if (widget.isOpened == false)
               Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -849,15 +846,15 @@ class _SlidingUpPanelFromEanWidgetState
                   Container(
                     width: double.infinity,
                     height: 100.0,
-                    constraints: BoxConstraints(
+                    constraints: const BoxConstraints(
                       minWidth: double.infinity,
                     ),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -865,7 +862,7 @@ class _SlidingUpPanelFromEanWidgetState
                           children: [
                             AutoSizeText(
                               valueOrDefault<String>(
-                                widget!.doc?.name,
+                                widget.doc?.name,
                                 'No name',
                               ).maybeHandleOverflow(
                                 maxChars: 20,
@@ -883,7 +880,7 @@ class _SlidingUpPanelFromEanWidgetState
                             ),
                             AutoSizeText(
                               valueOrDefault<String>(
-                                widget!.doc?.addressLines?.firstOrNull,
+                                widget.doc?.addressLines.firstOrNull,
                                 'No producer',
                               ).maybeHandleOverflow(
                                 maxChars: 25,
@@ -892,25 +889,25 @@ class _SlidingUpPanelFromEanWidgetState
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Roboto',
-                                    color: Color(0xFFAFACC7),
+                                    color: const Color(0xFFAFACC7),
                                     fontSize: 18.0,
                                     letterSpacing: 0.15,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
-                          ].divide(SizedBox(height: 15.0)),
+                          ].divide(const SizedBox(height: 15.0)),
                         ),
                       ),
                     ),
                   ),
-                ].addToEnd(SizedBox(height: 70.0)),
+                ].addToEnd(const SizedBox(height: 70.0)),
               ),
             Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
+              alignment: const AlignmentDirectional(0.0, 1.0),
               child: Container(
                 width: double.infinity,
                 height: 55.0,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20.0),
@@ -923,10 +920,10 @@ class _SlidingUpPanelFromEanWidgetState
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    if (widget!.isOpened == false)
+                    if (widget.isOpened == false)
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             '6n80je7x' /* Pull down for more information */,
@@ -946,7 +943,7 @@ class _SlidingUpPanelFromEanWidgetState
                       width: 60.0,
                       height: 4.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFFAFACC7),
+                        color: const Color(0xFFAFACC7),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                     ),

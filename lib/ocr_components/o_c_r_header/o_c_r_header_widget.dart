@@ -1,8 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'o_c_r_header_model.dart';
 export 'o_c_r_header_model.dart';
 
@@ -49,9 +47,9 @@ class _OCRHeaderWidgetState extends State<OCRHeaderWidget> {
         color: FlutterFlowTheme.of(context).primary,
       ),
       child: Align(
-        alignment: AlignmentDirectional(0.0, 0.8),
+        alignment: const AlignmentDirectional(0.0, 0.8),
         child: Text(
-          widget!.currentName!,
+          widget.currentName!,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Roboto',
                 color: FlutterFlowTheme.of(context).lNWhite,

@@ -2,10 +2,8 @@ import '/backend/backend.dart';
 import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'medication_model.dart';
 export 'medication_model.dart';
@@ -74,11 +72,11 @@ class _MedicationWidgetState extends State<MedicationWidget> {
         ),
         Container(
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.transparent,
           ),
           child: Visibility(
-            visible: FFAppState().Medication.length != 0,
+            visible: FFAppState().Medication.isNotEmpty,
             child: Builder(
               builder: (context) {
                 final medication = FFAppState().Medication.toList();
@@ -111,7 +109,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 10.0, 12.0, 10.0),
                           child: Text(
                             medicationItem,
@@ -119,7 +117,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFFF7F7F7),
+                                  color: const Color(0xFFF7F7F7),
                                   letterSpacing: 0.15,
                                   fontWeight: FontWeight.w800,
                                 ),
@@ -133,14 +131,14 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             ),
           ),
         ),
-        Container(
+        SizedBox(
           width: double.infinity,
           child: TextFormField(
             controller: _model.textController,
             focusNode: _model.textFieldFocusNode,
             onChanged: (_) => EasyDebounce.debounce(
               '_model.textController',
-              Duration(milliseconds: 2000),
+              const Duration(milliseconds: 2000),
               () async {
                 logFirebaseEvent('MEDICATION_TextField_e4jugqa0_ON_TEXTFIE');
                 if (_model.textController.text.length > 1) {
@@ -180,7 +178,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                     lineHeight: 1.5,
                   ),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: Color(0xFFAFACC7),
                   width: 2.0,
                 ),
@@ -208,7 +206,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                 borderRadius: BorderRadius.circular(6.0),
               ),
               contentPadding:
-                  EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 16.0, 10.0),
+                  const EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 16.0, 10.0),
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
@@ -263,12 +261,12 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                           color: Colors.transparent,
                           borderRadius: BorderRadius.circular(6.0),
                           border: Border.all(
-                            color: Color(0xFFAFACC7),
+                            color: const Color(0xFFAFACC7),
                             width: 1.3,
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 10.0, 12.0, 10.0),
                           child: Text(
                             medicamentItem.name,
@@ -276,7 +274,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFFAFACC7),
+                                  color: const Color(0xFFAFACC7),
                                   letterSpacing: 0.15,
                                   fontWeight: FontWeight.w800,
                                 ),
@@ -284,15 +282,15 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                         ),
                       ),
                     );
-                  }).divide(SizedBox(width: 8.0)),
+                  }).divide(const SizedBox(width: 8.0)),
                 ),
               );
             },
           ),
-        if (widget!.shouldShowLink ?? true)
+        if (widget.shouldShowLink ?? true)
           Container(
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.transparent,
             ),
             child: Column(
@@ -315,7 +313,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -333,7 +331,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                         borderRadius: BorderRadius.circular(6.0),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             12.0, 10.0, 12.0, 10.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
@@ -353,10 +351,10 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                     ),
                   ),
                 ),
-              ].divide(SizedBox(height: 15.0)),
+              ].divide(const SizedBox(height: 15.0)),
             ),
           ),
-      ].divide(SizedBox(height: 15.0)).addToStart(SizedBox(height: 15.0)),
+      ].divide(const SizedBox(height: 15.0)).addToStart(const SizedBox(height: 15.0)),
     );
   }
 }

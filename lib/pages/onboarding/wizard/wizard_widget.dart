@@ -5,14 +5,11 @@ import '/components/medication/medication_widget.dart';
 import '/components/personal_info/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'wizard_model.dart';
 export 'wizard_model.dart';
@@ -40,7 +37,7 @@ class _WizardWidgetState extends State<WizardWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('WIZARD_PAGE_Wizard_ON_INIT_STATE');
-      if (FFAppState().imageName == null || FFAppState().imageName == '') {
+      if (FFAppState().imageName == '') {
         FFAppState().imageName = 'abc';
         safeSetState(() {});
       }
@@ -79,11 +76,11 @@ class _WizardWidgetState extends State<WizardWidget> {
         key: scaffoldKey,
         backgroundColor: Colors.transparent,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0.0),
+          preferredSize: const Size.fromHeight(0.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
-            actions: [],
+            actions: const [],
             centerTitle: false,
             toolbarHeight: 0.0,
             elevation: 0.0,
@@ -95,7 +92,7 @@ class _WizardWidgetState extends State<WizardWidget> {
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).primaryBackground,
             ),
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
               height: double.infinity,
               child: PageView(
@@ -107,7 +104,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                   Stack(
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: SingleChildScrollView(
                           controller: _model.columnController1,
@@ -126,7 +123,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                               ),
                               Container(
                                 width: double.infinity,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.transparent,
                                 ),
                                 child: wrapWithModel(
@@ -149,7 +146,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                               wrapWithModel(
                                 model: _model.avatarMenuModel,
                                 updateCallback: () => safeSetState(() {}),
-                                child: AvatarMenuWidget(),
+                                child: const AvatarMenuWidget(),
                               ),
                               wrapWithModel(
                                 model: _model.personalInfoModel,
@@ -162,9 +159,9 @@ class _WizardWidgetState extends State<WizardWidget> {
                                 ),
                               ),
                             ]
-                                .divide(SizedBox(height: 24.0))
-                                .addToStart(SizedBox(height: 50.0))
-                                .addToEnd(SizedBox(height: 150.0)),
+                                .divide(const SizedBox(height: 24.0))
+                                .addToStart(const SizedBox(height: 50.0))
+                                .addToEnd(const SizedBox(height: 150.0)),
                           ),
                         ),
                       ),
@@ -172,13 +169,13 @@ class _WizardWidgetState extends State<WizardWidget> {
                           ? MediaQuery.viewInsetsOf(context).bottom > 0
                           : _isKeyboardVisible))
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.95),
+                          alignment: const AlignmentDirectional(0.0, 0.95),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
                             child: Container(
                               width: double.infinity,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.transparent,
                               ),
                               child: Column(
@@ -193,14 +190,14 @@ class _WizardWidgetState extends State<WizardWidget> {
                                       logFirebaseEvent(
                                           'WIZARD_PAGE_Container_ei0o3pv2_ON_TAP');
                                       await _model.pageViewController?.nextPage(
-                                        duration: Duration(milliseconds: 300),
+                                        duration: const Duration(milliseconds: 300),
                                         curve: Curves.ease,
                                       );
                                     },
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFF382F73),
+                                        color: const Color(0xFF382F73),
                                         borderRadius:
                                             BorderRadius.circular(6.0),
                                       ),
@@ -211,7 +208,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 10.0, 12.0, 10.0),
                                             child: Text(
                                               FFLocalizations.of(context)
@@ -224,7 +221,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Roboto',
-                                                    color: Color(0xFFB7C1FA),
+                                                    color: const Color(0xFFB7C1FA),
                                                     letterSpacing: 0.15,
                                                     fontWeight: FontWeight.w800,
                                                     lineHeight: 1.5,
@@ -252,7 +249,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                       borderRadius: BorderRadius.circular(6.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 10.0, 12.0, 10.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -286,7 +283,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(height: 12.0)),
+                                ].divide(const SizedBox(height: 12.0)),
                               ),
                             ),
                           ),
@@ -296,7 +293,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                   Stack(
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: SingleChildScrollView(
                           controller: _model.columnController2,
@@ -315,7 +312,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                               ),
                               Container(
                                 width: double.infinity,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.transparent,
                                 ),
                                 child: wrapWithModel(
@@ -336,12 +333,12 @@ class _WizardWidgetState extends State<WizardWidget> {
                               wrapWithModel(
                                 model: _model.intoleranciesModel,
                                 updateCallback: () => safeSetState(() {}),
-                                child: IntoleranciesWidget(),
+                                child: const IntoleranciesWidget(),
                               ),
                               if (FFAppState().medicaments)
                                 Container(
                                   width: double.infinity,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.transparent,
                                   ),
                                   child: wrapWithModel(
@@ -356,7 +353,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                             ?.animateTo(
                                           _model.columnController2!.position
                                               .maxScrollExtent,
-                                          duration: Duration(milliseconds: 100),
+                                          duration: const Duration(milliseconds: 100),
                                           curve: Curves.ease,
                                         );
                                       },
@@ -364,9 +361,9 @@ class _WizardWidgetState extends State<WizardWidget> {
                                   ),
                                 ),
                             ]
-                                .divide(SizedBox(height: 24.0))
-                                .addToStart(SizedBox(height: 50.0))
-                                .addToEnd(SizedBox(height: 120.0)),
+                                .divide(const SizedBox(height: 24.0))
+                                .addToStart(const SizedBox(height: 50.0))
+                                .addToEnd(const SizedBox(height: 120.0)),
                           ),
                         ),
                       ),
@@ -374,13 +371,13 @@ class _WizardWidgetState extends State<WizardWidget> {
                           ? MediaQuery.viewInsetsOf(context).bottom > 0
                           : _isKeyboardVisible))
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.95),
+                          alignment: const AlignmentDirectional(0.0, 0.95),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
                             child: Container(
                               width: double.infinity,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.transparent,
                               ),
                               child: Column(
@@ -388,7 +385,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                 children: [
                                   Container(
                                     width: double.infinity,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.transparent,
                                     ),
                                     child: Row(
@@ -405,7 +402,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                             await _model.pageViewController
                                                 ?.previousPage(
                                               duration:
-                                                  Duration(milliseconds: 300),
+                                                  const Duration(milliseconds: 300),
                                               curve: Curves.ease,
                                             );
                                           },
@@ -418,7 +415,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsets.all(12.0),
+                                              padding: const EdgeInsets.all(12.0),
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(0.0),
@@ -454,7 +451,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                                     BorderRadius.circular(6.0),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 10.0, 12.0, 10.0),
                                                 child: Text(
@@ -469,7 +466,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                                       .override(
                                                         fontFamily: 'Roboto',
                                                         color:
-                                                            Color(0xFFB7C1FA),
+                                                            const Color(0xFFB7C1FA),
                                                         letterSpacing: 0.15,
                                                         fontWeight:
                                                             FontWeight.w800,
@@ -480,10 +477,10 @@ class _WizardWidgetState extends State<WizardWidget> {
                                             ),
                                           ),
                                         ),
-                                      ].divide(SizedBox(width: 12.0)),
+                                      ].divide(const SizedBox(width: 12.0)),
                                     ),
                                   ),
-                                ].divide(SizedBox(height: 12.0)),
+                                ].divide(const SizedBox(height: 12.0)),
                               ),
                             ),
                           ),

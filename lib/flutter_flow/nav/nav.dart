@@ -1,22 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -85,55 +77,55 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? entryPage ?? HomeWidget()
-          : WelcomeWidget(),
+          ? entryPage ?? const HomeWidget()
+          : const WelcomeWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? entryPage ?? HomeWidget()
-              : WelcomeWidget(),
+              ? entryPage ?? const HomeWidget()
+              : const WelcomeWidget(),
         ),
         FFRoute(
           name: 'Home',
           path: '/home',
-          builder: (context, params) => HomeWidget(),
+          builder: (context, params) => const HomeWidget(),
         ),
         FFRoute(
           name: 'Settings',
           path: '/settings',
-          builder: (context, params) => SettingsWidget(),
+          builder: (context, params) => const SettingsWidget(),
         ),
         FFRoute(
           name: 'Camera',
           path: '/camera',
-          builder: (context, params) => CameraWidget(),
+          builder: (context, params) => const CameraWidget(),
         ),
         FFRoute(
           name: 'Welcome',
           path: '/welcome',
-          builder: (context, params) => WelcomeWidget(),
+          builder: (context, params) => const WelcomeWidget(),
         ),
         FFRoute(
           name: 'SubSettings',
           path: '/subSettings',
-          builder: (context, params) => SubSettingsWidget(),
+          builder: (context, params) => const SubSettingsWidget(),
         ),
         FFRoute(
           name: 'Wizard',
           path: '/wizard',
-          builder: (context, params) => WizardWidget(),
+          builder: (context, params) => const WizardWidget(),
         ),
         FFRoute(
           name: 'testPage',
           path: '/testPage',
-          builder: (context, params) => TestPageWidget(),
+          builder: (context, params) => const TestPageWidget(),
         ),
         FFRoute(
           name: 'OcrScannerPage',
           path: '/ocrScannerPage',
-          builder: (context, params) => OcrScannerPageWidget(),
+          builder: (context, params) => const OcrScannerPageWidget(),
         ),
         FFRoute(
           name: 'OcrDateWizzard',
@@ -379,7 +371,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

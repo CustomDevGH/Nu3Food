@@ -2,12 +2,8 @@ import '/components/authentication/auth_component/auth_component_widget.dart';
 import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'welcome_model.dart';
 export 'welcome_model.dart';
 
@@ -49,11 +45,11 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0.0),
+          preferredSize: const Size.fromHeight(0.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
-            actions: [],
+            actions: const [],
             centerTitle: false,
             toolbarHeight: 0.0,
             elevation: 0.0,
@@ -63,8 +59,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
           top: true,
           child: Container(
             height: double.infinity,
-            decoration: BoxDecoration(),
-            child: Container(
+            decoration: const BoxDecoration(),
+            child: SizedBox(
               width: double.infinity,
               height: double.infinity,
               child: PageView(
@@ -74,18 +70,18 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       width: double.infinity,
                       height: double.infinity,
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         maxWidth: 670.0,
                       ),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         child: SingleChildScrollView(
                           child: Column(
@@ -112,7 +108,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                               ),
                               Container(
                                 width: double.infinity,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.transparent,
                                 ),
                                 child: wrapWithModel(
@@ -144,7 +140,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                       logFirebaseEvent(
                                           'WELCOME_PAGE_Container_va9hw5vd_ON_TAP');
                                       await _model.pageViewController?.nextPage(
-                                        duration: Duration(milliseconds: 300),
+                                        duration: const Duration(milliseconds: 300),
                                         curve: Curves.ease,
                                       );
                                     },
@@ -157,7 +153,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                             BorderRadius.circular(6.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             12.0, 10.0, 12.0, 10.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -168,7 +164,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
-                                                color: Color(0xFFB7C1FA),
+                                                color: const Color(0xFFB7C1FA),
                                                 letterSpacing: 0.15,
                                                 fontWeight: FontWeight.w800,
                                                 lineHeight: 1.5,
@@ -197,7 +193,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                             BorderRadius.circular(6.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             12.0, 10.0, 12.0, 10.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -219,9 +215,9 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(height: 12.0)),
+                                ].divide(const SizedBox(height: 12.0)),
                               ),
-                            ].divide(SizedBox(height: 24.0)),
+                            ].divide(const SizedBox(height: 24.0)),
                           ),
                         ),
                       ),
@@ -230,12 +226,12 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                   Container(
                     width: 100.0,
                     height: 100.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -243,11 +239,11 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                           children: [
                             Container(
                               width: double.infinity,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.transparent,
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
                                   child: SvgPicture.asset(
@@ -270,7 +266,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                             ),
                             Container(
                               width: double.infinity,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.transparent,
                               ),
                               child: wrapWithModel(
@@ -293,16 +289,16 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                             Container(
                               width: double.infinity,
                               height: 200.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.transparent,
                               ),
                               child: wrapWithModel(
                                 model: _model.authComponentModel,
                                 updateCallback: () => safeSetState(() {}),
-                                child: AuthComponentWidget(),
+                                child: const AuthComponentWidget(),
                               ),
                             ),
-                          ].divide(SizedBox(height: 24.0)),
+                          ].divide(const SizedBox(height: 24.0)),
                         ),
                       ),
                     ),

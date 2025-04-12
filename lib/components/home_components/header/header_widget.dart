@@ -1,11 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'header_model.dart';
 export 'header_model.dart';
@@ -44,10 +42,10 @@ class _HeaderWidgetState extends State<HeaderWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 70.0, 0.0, 0.0),
       child: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.transparent,
         ),
         child: Row(
@@ -63,7 +61,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                 Flexible(
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 0.6,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: AuthUserStreamWidget(
@@ -92,7 +90,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                 Flexible(
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 0.6,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: AutoSizeText(
@@ -102,7 +100,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: Color(0xFFAFACC7),
+                            color: const Color(0xFFAFACC7),
                             fontSize: 18.0,
                             letterSpacing: 0.15,
                             fontWeight: FontWeight.w500,
@@ -111,7 +109,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                     ),
                   ),
                 ),
-              ].divide(SizedBox(height: 4.0)),
+              ].divide(const SizedBox(height: 4.0)),
             ),
             InkWell(
               splashColor: Colors.transparent,
@@ -126,7 +124,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                   context.pushNamed('Settings');
                 }
               },
-              child: Container(
+              child: SizedBox(
                 width: 73.0,
                 height: 73.0,
                 child: custom_widgets.ImageFromString(

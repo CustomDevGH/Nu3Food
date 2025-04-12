@@ -1,19 +1,15 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart'; // Imports custom actions
-import '/flutter_flow/custom_functions.dart'; // Imports custom functions
+// Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 // my imports
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
-import 'package:image/image.dart' as img;
 import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart';
 import 'package:camera/camera.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -36,10 +32,10 @@ enum states {
 
 class BarCodeScanner extends StatefulWidget {
   const BarCodeScanner({
-    Key? key,
+    super.key,
     this.width,
     this.height,
-  }) : super(key: key);
+  });
 
   final double? width;
   final double? height;
@@ -52,11 +48,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
     with TickerProviderStateMixin {
   final Color _safeFoodColor = Colors.green.withOpacity(0.5);
   final Color _dangerounsFoodColor = Colors.red.withOpacity(0.5);
-  final Color _neutralColor = const Color(0x1C0D26).withOpacity(0.5);
+  final Color _neutralColor = const Color(0x001c0d26).withOpacity(0.5);
   final Color _mildFoodColor = Colors.yellow.withOpacity(0.5);
   List<String> _requestedEans = [];
   String _currentDisplayedEan = '';
-  PanelController _panelController = PanelController();
+  final PanelController _panelController = PanelController();
   ProductsRecord? _scannedFood;
   late Color _backdropColor; //initial color
   bool _panelOpened = false;
@@ -280,10 +276,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         defaultPanelState: PanelState.CLOSED,
         isDraggable: true,
         onPanelOpened: () {
-          if (!_panelOpened)
+          if (!_panelOpened) {
             setState(() {
               _panelOpened = true;
             });
+          }
         },
         onPanelSlide: (position) {
           if (position <= 0.5 && _panelOpened) {
@@ -437,12 +434,13 @@ class _BarCodeScannerState extends State<BarCodeScanner>
           mounted &&
           _panelController.isPanelShown &&
           !_panelController.isPanelOpen) {
-        if (mounted)
+        if (mounted) {
           setState(() {
             _backdropColor = _neutralColor;
             _ean = '';
             _foundSomethingUseful = false;
           });
+        }
 
         await _panelController.animatePanelToPosition(
           0,
@@ -450,10 +448,11 @@ class _BarCodeScannerState extends State<BarCodeScanner>
         );
         _panelOpened = false;
 
-        if (mounted)
+        if (mounted) {
           setState(() {
             _scannedFood = null;
           });
+        }
       }
       return;
     }
@@ -462,10 +461,10 @@ class _BarCodeScannerState extends State<BarCodeScanner>
 
     if (scannedFood != null) {
       _foundSomethingUseful = true;
-      var isSafe = await isFoodSafe(scannedFood!.allergens);
+      var isSafe = await isFoodSafe(scannedFood.allergens);
       var isFineWithDrugs = true;
       if (FFAppState().medicaments) {
-        isFineWithDrugs = await isDrugComplient(scannedFood!);
+        isFineWithDrugs = await isDrugComplient(scannedFood);
       }
       _backdropColor = !isSafe
           ? _dangerounsFoodColor
@@ -536,11 +535,10 @@ class HoleClipper extends CustomClipper<Path> {
 
 class ScannerPage extends StatefulWidget {
   const ScannerPage(
-      {Key? key,
+      {super.key,
       required this.onEanScanned,
       this.isTorchOn = false,
-      this.scanningType = 1})
-      : super(key: key);
+      this.scanningType = 1});
 
   final Function(String) onEanScanned;
   final bool isTorchOn;

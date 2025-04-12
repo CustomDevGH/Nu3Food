@@ -1,9 +1,6 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'add_new_ean_request_model.dart';
 export 'add_new_ean_request_model.dart';
 
@@ -41,12 +38,12 @@ class _AddNewEanRequestWidgetState extends State<AddNewEanRequestWidget> {
     return Container(
       width: 60.0,
       height: 60.0,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color(0xFFB7C1FA),
         shape: BoxShape.circle,
       ),
       child: Align(
-        alignment: AlignmentDirectional(0.0, 0.0),
+        alignment: const AlignmentDirectional(0.0, 0.0),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8.0),
           child: SvgPicture.asset(

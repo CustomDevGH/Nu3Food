@@ -1,12 +1,8 @@
-import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/home_components/scanned_item/scanned_item_widget.dart';
 import '/components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'scanned_items_model.dart';
 export 'scanned_items_model.dart';
@@ -49,7 +45,7 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
         final scannedItem = FFAppState().ScannedItems.toList();
 
         return ListView.separated(
-          padding: EdgeInsets.fromLTRB(
+          padding: const EdgeInsets.fromLTRB(
             0,
             0,
             5.0,
@@ -59,7 +55,7 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemCount: scannedItem.length,
-          separatorBuilder: (_, __) => SizedBox(width: 12.0),
+          separatorBuilder: (_, __) => const SizedBox(width: 12.0),
           itemBuilder: (context, scannedItemIndex) {
             final scannedItemItem = scannedItem[scannedItemIndex];
             return Builder(
@@ -75,16 +71,16 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
                     false,
                   );
                   await showDialog(
-                    barrierColor: Color(0xC62D2C2C),
+                    barrierColor: const Color(0xC62D2C2C),
                     context: context,
                     builder: (dialogContext) {
                       return Dialog(
                         elevation: 0,
                         insetPadding: EdgeInsets.zero,
                         backgroundColor: Colors.transparent,
-                        alignment: AlignmentDirectional(0.0, 0.0)
+                        alignment: const AlignmentDirectional(0.0, 0.0)
                             .resolve(Directionality.of(context)),
-                        child: Container(
+                        child: SizedBox(
                           height: MediaQuery.sizeOf(context).height * 0.7,
                           width: MediaQuery.sizeOf(context).width * 0.85,
                           child: SlidingUpPanelFromEanWidget(
@@ -102,9 +98,9 @@ class _ScannedItemsWidgetState extends State<ScannedItemsWidget> {
                 },
                 child: Container(
                   width: 231.0,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: ScannedItemWidget(
                       key: Key(
                           'Key5c6_${scannedItemIndex}_of_${scannedItem.length}'),

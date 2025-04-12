@@ -1,25 +1,20 @@
 // Automatic FlutterFlow imports
-import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import 'index.dart'; // Imports other custom widgets
-import '/custom_code/actions/index.dart'; // Imports custom actions
-import '/flutter_flow/custom_functions.dart'; // Imports custom functions
+// Imports other custom widgets
+// Imports custom actions
+// Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 class NamedSlider extends StatefulWidget {
   const NamedSlider({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     required this.type,
     required this.minValue,
     required this.maxValue,
-  }) : super(key: key);
+  });
 
   final double? width;
   final double? height;
@@ -53,13 +48,13 @@ class _NamedSliderState extends State<NamedSlider> {
                   children: [
                     Text(
                       '${100.toString()} ${widget.type == 'Vaha' ? 'kg' : 'cm'}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color.fromRGBO(0, 0, 0, 1),
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
+                    const Text(
                       "100",
                       style: TextStyle(
                         color: Color.fromRGBO(0, 0, 0, 1),
@@ -71,13 +66,13 @@ class _NamedSliderState extends State<NamedSlider> {
                 ),
               ),
               SliderTheme(
-                data: SliderThemeData(
+                data: const SliderThemeData(
                   activeTrackColor: Color.fromRGBO(0, 0, 0, 1),
                   inactiveTrackColor: Color.fromRGBO(232, 232, 232, 1),
                   thumbColor: Color.fromRGBO(0, 0, 0, 1),
                   trackHeight: 2,
                   thumbShape:
-                      const RoundSliderThumbShape(enabledThumbRadius: 8),
+                      RoundSliderThumbShape(enabledThumbRadius: 8),
                   showValueIndicator: ShowValueIndicator.always,
                   valueIndicatorColor: Color.fromRGBO(0, 0, 0, 1),
                   valueIndicatorTextStyle: TextStyle(

@@ -1,12 +1,8 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'index.dart'; // Imports other custom actions
+// Imports other custom actions
 import '/flutter_flow/custom_functions.dart'; // Imports custom functions
-import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
@@ -19,7 +15,7 @@ Future<MedicationStructStruct> getMedicationStruct(
       .where("Name", isEqualTo: name)
       .get();
 
-  if (medication.docs.length == 0) {
+  if (medication.docs.isEmpty) {
     return MedicationStructStruct(isSafe: false, name: name);
   }
 
@@ -39,7 +35,7 @@ Future<MedicationStructStruct> getMedicationStruct(
     }
   }
 
-  if (classificationsKeys.length == 0) {
+  if (classificationsKeys.isEmpty) {
     return MedicationStructStruct(isSafe: false, name: name);
   }
 
@@ -59,8 +55,7 @@ Future<MedicationStructStruct> getMedicationStruct(
 
   final nutritions = product.nutrients;
 
-  final synonyms = Map.fromIterable(FFAppState().listOfSynonyms,
-      key: (e) => e.name, value: (e) => e.synonyms);
+  final synonyms = { for (var e in FFAppState().listOfSynonyms) e.name : e.synonyms };
 
   for (var businessRule in businessRules.docs) {
     final booleanValues = businessRule.get("boolean_values");

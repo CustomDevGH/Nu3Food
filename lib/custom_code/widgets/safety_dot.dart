@@ -1,23 +1,18 @@
 // Automatic FlutterFlow imports
-import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
-import 'index.dart'; // Imports other custom widgets
+// Imports other custom widgets
 import '/custom_code/actions/index.dart'; // Imports custom actions
-import '/flutter_flow/custom_functions.dart'; // Imports custom functions
+// Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 class SafetyDot extends StatefulWidget {
   const SafetyDot({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     required this.allergens,
-  }) : super(key: key);
+  });
 
   final double? width;
   final double? height;
@@ -42,8 +37,8 @@ class _SafetyDotState extends State<SafetyDot> {
           return Container(
             width: 10.0,
             height: 10.0,
-            decoration: BoxDecoration(
-              color: Color(0x7a7a7a),
+            decoration: const BoxDecoration(
+              color: Color(0x007a7a7a),
               shape: BoxShape.circle,
             ),
           );
@@ -55,7 +50,7 @@ class _SafetyDotState extends State<SafetyDot> {
             height: 10.0,
             decoration: BoxDecoration(
               color:
-                  snapshot.data == true ? Color(0xFF82D680) : Color(0xFFD68080),
+                  snapshot.data == true ? const Color(0xFF82D680) : const Color(0xFFD68080),
               shape: BoxShape.circle,
             ),
           );

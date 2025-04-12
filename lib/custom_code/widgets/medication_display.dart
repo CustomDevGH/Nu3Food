@@ -1,11 +1,9 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'index.dart'; // Imports other custom widgets
-import '/custom_code/actions/index.dart'; // Imports custom actions
+// Imports other custom widgets
+// Imports custom actions
 import '/flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
@@ -16,11 +14,11 @@ import '../../components/medication_container/medication_container_widget.dart';
 
 class MedicationDisplay extends StatefulWidget {
   const MedicationDisplay({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     this.product,
-  }) : super(key: key);
+  });
 
   final double? width;
   final double? height;
@@ -39,7 +37,7 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
         .where("Name", isEqualTo: name)
         .get();
 
-    if (medication.docs.length == 0) {
+    if (medication.docs.isEmpty) {
       return MedicationStruct(false, name);
     }
 
@@ -59,7 +57,7 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
       }
     }
 
-    if (classificationsKeys.length == 0) {
+    if (classificationsKeys.isEmpty) {
       return MedicationStruct(false, name);
     }
 
@@ -137,7 +135,7 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
                             color: FlutterFlowTheme.of(context).primary,
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: CircularProgressIndicator(
+                          child: const CircularProgressIndicator(
                             color: Colors.white,
                           ),
                         );
@@ -151,7 +149,7 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
                             color: FlutterFlowTheme.of(context).primary,
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: Icon(
+                          child: const Icon(
                             Icons.error,
                             color: Colors.white,
                           ),
@@ -170,7 +168,7 @@ class _MedicationDisplayState extends State<MedicationDisplay> {
                       );
                     });
               },
-            ).divide(SizedBox(width: 8.0)),
+            ).divide(const SizedBox(width: 8.0)),
           ),
         );
       },

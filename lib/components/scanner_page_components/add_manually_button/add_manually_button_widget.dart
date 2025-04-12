@@ -2,9 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'add_manually_button_model.dart';
 export 'add_manually_button_model.dart';
@@ -61,7 +59,7 @@ class _AddManuallyButtonWidgetState extends State<AddManuallyButtonWidget> {
         await RequestedEansRecord.collection
             .doc()
             .set(createRequestedEansRecordData(
-              ean: widget!.ean,
+              ean: widget.ean,
               createdBy: FFAppState().IsGuest ? 'guest' : currentUserUid,
               creationTime: getCurrentTimestamp,
             ));
@@ -71,11 +69,11 @@ class _AddManuallyButtonWidgetState extends State<AddManuallyButtonWidget> {
         width: 160.0,
         height: 60.0,
         decoration: BoxDecoration(
-          color: Color(0xFFB7C1FA),
+          color: const Color(0xFFB7C1FA),
           borderRadius: BorderRadius.circular(76.0),
         ),
         child: Align(
-          alignment: AlignmentDirectional(0.0, 0.0),
+          alignment: const AlignmentDirectional(0.0, 0.0),
           child: Text(
             FFLocalizations.of(context).getText(
               '7dl2baci' /* Add manually */,

@@ -4,13 +4,9 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'personal_info_model.dart';
 export 'personal_info_model.dart';
@@ -19,7 +15,7 @@ class PersonalInfoWidget extends StatefulWidget {
   const PersonalInfoWidget({
     super.key,
     String? greetingText,
-  }) : this.greetingText = greetingText ?? 'Fill out your information';
+  }) : greetingText = greetingText ?? 'Fill out your information';
 
   final String greetingText;
 
@@ -57,7 +53,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Form(
         key: _model.formKey,
@@ -67,7 +63,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget!.greetingText,
+              widget.greetingText,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Roboto',
                     color: FlutterFlowTheme.of(context).primary,
@@ -83,19 +79,19 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                 color: Colors.transparent,
                 borderRadius: BorderRadius.circular(6.0),
                 border: Border.all(
-                  color: Color(0xFFAFACC7),
+                  color: const Color(0xFFAFACC7),
                   width: 2.0,
                 ),
               ),
               child: AuthUserStreamWidget(
-                builder: (context) => Container(
+                builder: (context) => SizedBox(
                   width: double.infinity,
                   child: TextFormField(
                     controller: _model.textController,
                     focusNode: _model.textFieldFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.textController',
-                      Duration(milliseconds: 2000),
+                      const Duration(milliseconds: 2000),
                       () async {
                         logFirebaseEvent(
                             'PERSONAL_INFO_TextField_uu9h7wdu_ON_TEXT');
@@ -117,7 +113,7 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                       focusedBorder: InputBorder.none,
                       errorBorder: InputBorder.none,
                       focusedErrorBorder: InputBorder.none,
-                      contentPadding: EdgeInsetsDirectional.fromSTEB(
+                      contentPadding: const EdgeInsetsDirectional.fromSTEB(
                           15.0, 10.0, 16.0, 10.0),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -140,19 +136,19 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
               highlightColor: Colors.transparent,
               onTap: () async {
                 logFirebaseEvent('PERSONAL_INFO_Container_1pwfp388_ON_TAP');
-                final _datePickedDate = await showDatePicker(
+                final datePickedDate = await showDatePicker(
                   context: context,
                   initialDate: getCurrentTimestamp,
                   firstDate: DateTime(1900),
                   lastDate: getCurrentTimestamp,
                 );
 
-                if (_datePickedDate != null) {
+                if (datePickedDate != null) {
                   safeSetState(() {
                     _model.datePicked = DateTime(
-                      _datePickedDate.year,
-                      _datePickedDate.month,
-                      _datePickedDate.day,
+                      datePickedDate.year,
+                      datePickedDate.month,
+                      datePickedDate.day,
                     );
                   });
                 }
@@ -166,13 +162,13 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(6.0),
                   border: Border.all(
-                    color: Color(0xFFAFACC7),
+                    color: const Color(0xFFAFACC7),
                     width: 2.0,
                   ),
                 ),
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 16.0, 10.0),
+                      const EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 16.0, 10.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -211,14 +207,14 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                    ].divide(SizedBox(width: 10.0)),
+                    ].divide(const SizedBox(width: 10.0)),
                   ),
                 ),
               ),
             ),
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.transparent,
               ),
               child: FlutterFlowDropDown<String>(
@@ -263,16 +259,16 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                 ),
                 fillColor: FlutterFlowTheme.of(context).primaryBackground,
                 elevation: 3.0,
-                borderColor: Color(0xFFAFACC7),
+                borderColor: const Color(0xFFAFACC7),
                 borderWidth: 2.0,
                 borderRadius: 6.0,
-                margin: EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 16.0, 10.0),
+                margin: const EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 16.0, 10.0),
                 hidesUnderline: true,
                 isSearchable: false,
                 isMultiSelect: false,
               ),
             ),
-          ].divide(SizedBox(height: 12.0)),
+          ].divide(const SizedBox(height: 12.0)),
         ),
       ),
     );

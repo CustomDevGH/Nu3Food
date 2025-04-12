@@ -2,18 +2,14 @@
 import 'package:nu3_food/components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
 
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart'; // Imports custom actions
-import '/flutter_flow/custom_functions.dart'; // Imports custom functions
+// Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'index.dart'; // Imports other custom widgets
+// Imports other custom widgets
 
 // my imports
 import 'package:camerawesome/camerawesome_plugin.dart';
@@ -164,7 +160,7 @@ class CameraForWizzardState extends State<CameraForWizzard> {
         debugPrint(recognizedBarCodes[i].displayValue);
       }
 
-      if (recognizedBarCodes.length >= 1) {
+      if (recognizedBarCodes.isNotEmpty) {
         final scannedFood =
             await getFoodFromEAN(recognizedBarCodes[0].rawValue!, true);
         if (scannedFood != null) {

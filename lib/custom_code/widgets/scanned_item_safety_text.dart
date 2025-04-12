@@ -1,12 +1,9 @@
 // Automatic FlutterFlow imports
-import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'index.dart'; // Imports other custom widgets
+// Imports other custom widgets
 import '/custom_code/actions/index.dart'; // Imports custom actions
-import '/flutter_flow/custom_functions.dart'; // Imports custom functions
+// Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
@@ -15,12 +12,12 @@ enum _Wrong { ALLERGEN, MEDS, NONE }
 
 class ScannedItemSafetyText extends StatefulWidget {
   const ScannedItemSafetyText({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     this.ean,
     required this.allergens,
-  }) : super(key: key);
+  });
 
   final double? width;
   final double? height;
@@ -67,8 +64,8 @@ class _ScannedItemSafetyTextState extends State<ScannedItemSafetyText> {
           return Container(
             width: 10.0,
             height: 10.0,
-            decoration: BoxDecoration(
-              color: Color(0x7a7a7a),
+            decoration: const BoxDecoration(
+              color: Color(0x007a7a7a),
               shape: BoxShape.circle,
             ),
           );

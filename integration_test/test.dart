@@ -1,12 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:nu3_food/flutter_flow/flutter_flow_drop_down.dart';
 
-import 'package:nu3_food/flutter_flow/flutter_flow_widgets.dart';
-import 'package:nu3_food/flutter_flow/flutter_flow_theme.dart';
-import 'package:nu3_food/index.dart';
 import 'package:nu3_food/main.dart';
 import 'package:nu3_food/flutter_flow/flutter_flow_util.dart';
 
@@ -36,14 +31,14 @@ void main() async {
 
     await tester.pumpWidget(ChangeNotifierProvider(
       create: (context) => FFAppState(),
-      child: MyApp(),
+      child: const MyApp(),
     ));
 
     await tester.tap(find.text('Continue without registration'));
     await tester.pumpAndSettle(
-      Duration(milliseconds: 10),
+      const Duration(milliseconds: 10),
       EnginePhase.sendSemanticsUpdate,
-      Duration(milliseconds: 3000),
+      const Duration(milliseconds: 3000),
     );
     expect(find.text('Hi user!'), findsWidgets);
   });
@@ -54,11 +49,11 @@ void main() async {
         email: 'kapitulcinjakub1@gmail.com', password: 'heslo123');
     await tester.pumpWidget(ChangeNotifierProvider(
       create: (context) => FFAppState(),
-      child: MyApp(),
+      child: const MyApp(),
     ));
 
     await tester.tap(find.text('Sign in with Google'));
-    await tester.pumpAndSettle(Duration(milliseconds: 20));
+    await tester.pumpAndSettle(const Duration(milliseconds: 20));
     expect(find.text('Create your profile'), findsOneWidget);
   });
 
@@ -67,10 +62,10 @@ void main() async {
 
     await tester.pumpWidget(ChangeNotifierProvider(
       create: (context) => FFAppState(),
-      child: MyApp(),
+      child: const MyApp(),
     ));
 
-    await tester.tap(find.byKey(ValueKey('Home_h7zf')));
+    await tester.tap(find.byKey(const ValueKey('Home_h7zf')));
   });
 }
 

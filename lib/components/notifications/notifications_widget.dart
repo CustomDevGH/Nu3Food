@@ -3,13 +3,10 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'notifications_model.dart';
 export 'notifications_model.dart';
 
@@ -54,21 +51,21 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 12.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 12.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
             child: Text(
               FFLocalizations.of(context).getText(
                 'ituuabx5' /* Notifications */,
               ),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Roboto',
-                    color: Color(0xFF1C0D26),
+                    color: const Color(0xFF1C0D26),
                     fontSize: 20.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w800,
@@ -84,7 +81,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
 
                     return GridView.builder(
                       padding: EdgeInsets.zero,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         crossAxisSpacing: 15.0,
                         mainAxisSpacing: 10.0,
@@ -104,7 +101,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -136,7 +133,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   text: FFLocalizations.of(context).getText(
                                     'axgz8q6h' /* Open */,
                                   ),
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.open_in_new_sharp,
                                     color: Color(0xFF382F73),
                                     size: 12.0,
@@ -144,20 +141,20 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   options: FFButtonOptions(
                                     width: 113.0,
                                     height: 29.0,
-                                    padding: EdgeInsets.all(0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsets.all(0.0),
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0xFFB580D6),
+                                    color: const Color(0xFFB580D6),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: Color(0xFF382F73),
+                                          color: const Color(0xFF382F73),
                                           fontSize: 14.0,
                                           letterSpacing: 0.15,
                                         ),
                                     elevation: 0.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
