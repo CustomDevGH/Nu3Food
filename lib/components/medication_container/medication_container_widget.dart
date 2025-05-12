@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'medication_container_model.dart';
 export 'medication_container_model.dart';
 
@@ -47,7 +46,7 @@ class _MedicationContainerWidgetState extends State<MedicationContainerWidget> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: widget!.safe!
+        color: widget.safe!
             ? FlutterFlowTheme.of(context).success
             : FlutterFlowTheme.of(context).error,
         borderRadius: BorderRadius.circular(6.0),
@@ -55,12 +54,16 @@ class _MedicationContainerWidgetState extends State<MedicationContainerWidget> {
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(8.0, 5.0, 8.0, 5.0),
         child: Text(
-          widget!.name!,
+          widget.name!,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Roboto',
+                font: GoogleFonts.roboto(
+                  fontWeight: FontWeight.w800,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                ),
                 color: FlutterFlowTheme.of(context).primary,
                 letterSpacing: 0.15,
                 fontWeight: FontWeight.w800,
+                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                 lineHeight: 1.5,
               ),
         ),

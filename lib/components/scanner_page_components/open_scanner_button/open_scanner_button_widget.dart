@@ -1,10 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'open_scanner_button_model.dart';
 export 'open_scanner_button_model.dart';
 
@@ -50,7 +49,7 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
         onTap: () async {
           logFirebaseEvent('OPEN_SCANNER_BUTTON_Container_7qpmb3mc_O');
 
-          context.pushNamed('Camera');
+          context.pushNamed(CameraWidget.routeName);
         },
         child: Container(
           width: 200.0,
@@ -81,11 +80,18 @@ class _OpenScannerButtonWidgetState extends State<OpenScannerButtonWidget> {
                       '83m0yhl8' /* Open scanner */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
+                          font: GoogleFonts.roboto(
+                            fontWeight: FontWeight.w800,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           color: Color(0xFFB7C1FA),
                           fontSize: 18.0,
                           letterSpacing: 0.15,
                           fontWeight: FontWeight.w800,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                   ),
                 ),

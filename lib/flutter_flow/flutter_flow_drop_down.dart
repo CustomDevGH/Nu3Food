@@ -1,6 +1,5 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 
-import 'package:flutter/foundation.dart';
 import 'form_field_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -37,6 +36,7 @@ class FlutterFlowDropDown<T> extends StatefulWidget {
     this.isMultiSelect = false,
     this.labelText,
     this.labelTextStyle,
+    this.optionsHasValueKeys = false,
   }) : assert(
           isMultiSelect
               ? (controller == null &&
@@ -79,6 +79,7 @@ class FlutterFlowDropDown<T> extends StatefulWidget {
   final bool isMultiSelect;
   final String? labelText;
   final TextStyle? labelTextStyle;
+  final bool optionsHasValueKeys;
 
   @override
   State<FlutterFlowDropDown<T>> createState() => _FlutterFlowDropDownState<T>();
@@ -210,9 +211,15 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
       ? Text(widget.hintText!, style: widget.textStyle)
       : null;
 
+  ValueKey _getItemKey(T option) {
+    final widgetKey = (widget.key as ValueKey).value;
+    return ValueKey('$widgetKey ${widget.options.indexOf(option)}');
+  }
+
   List<DropdownMenuItem<T>> _createMenuItems() => widget.options
       .map(
         (option) => DropdownMenuItem<T>(
+            key: widget.optionsHasValueKeys ? _getItemKey(option) : null,
             value: option,
             child: Padding(
               padding: _useDropdown2() ? horizontalMargin : EdgeInsets.zero,
@@ -224,6 +231,7 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
   List<DropdownMenuItem<T>> _createMultiselectMenuItems() => widget.options
       .map(
         (item) => DropdownMenuItem<T>(
+          key: widget.optionsHasValueKeys ? _getItemKey(item) : null,
           value: item,
           // Disable default onTap to avoid closing menu when selecting an item
           enabled: false,
@@ -269,8 +277,8 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
       .toList();
 
   Widget _buildDropdown() {
-    final overlayColor = MaterialStateProperty.resolveWith<Color?>((states) =>
-        states.contains(MaterialState.focused) ? Colors.transparent : null);
+    final overlayColor = WidgetStateProperty.resolveWith<Color?>((states) =>
+        states.contains(WidgetState.focused) ? Colors.transparent : null);
     final iconStyleData = widget.icon != null
         ? IconStyleData(icon: widget.icon!)
         : const IconStyleData();

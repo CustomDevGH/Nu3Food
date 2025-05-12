@@ -2,17 +2,18 @@ import '/components/authentication/auth_component/auth_component_widget.dart';
 import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'welcome_model.dart';
 export 'welcome_model.dart';
 
 class WelcomeWidget extends StatefulWidget {
   const WelcomeWidget({super.key});
+
+  static String routeName = 'Welcome';
+  static String routePath = '/welcome';
 
   @override
   State<WelcomeWidget> createState() => _WelcomeWidgetState();
@@ -167,10 +168,21 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                font: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w800,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 color: Color(0xFFB7C1FA),
                                                 letterSpacing: 0.15,
                                                 fontWeight: FontWeight.w800,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                                 lineHeight: 1.5,
                                               ),
                                         ),
@@ -187,7 +199,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                           'WELCOME_PAGE_Container_lmlvumir_ON_TAP');
                                       FFAppState().IsGuest = true;
 
-                                      context.goNamed('Home');
+                                      context.goNamed(HomeWidget.routeName);
                                     },
                                     child: Container(
                                       width: double.infinity,
@@ -207,12 +219,23 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                font: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w800,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
                                                 letterSpacing: 0.15,
                                                 fontWeight: FontWeight.w800,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                                 lineHeight: 1.5,
                                               ),
                                         ),

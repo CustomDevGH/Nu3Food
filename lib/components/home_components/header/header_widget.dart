@@ -1,8 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -78,11 +78,19 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                         ),
                         maxLines: 1,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Roboto',
+                              font: GoogleFonts.roboto(
+                                fontWeight: FontWeight.w800,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
                               color: FlutterFlowTheme.of(context).primary,
                               fontSize: 32.0,
                               letterSpacing: 0.25,
                               fontWeight: FontWeight.w800,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
                               lineHeight: 1.3,
                             ),
                       ),
@@ -101,11 +109,19 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                       ),
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.w500,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
                             color: Color(0xFFAFACC7),
                             fontSize: 18.0,
                             letterSpacing: 0.15,
                             fontWeight: FontWeight.w500,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
                             lineHeight: 1.5,
                           ),
                     ),
@@ -121,9 +137,9 @@ class _HeaderWidgetState extends State<HeaderWidget> {
               onTap: () async {
                 logFirebaseEvent('HEADER_COMP_Container_t8cvylwh_ON_TAP');
                 if (FFAppState().IsGuest) {
-                  context.pushNamed('Welcome');
+                  context.pushNamed(WelcomeWidget.routeName);
                 } else {
-                  context.pushNamed('Settings');
+                  context.pushNamed(SettingsWidget.routeName);
                 }
               },
               child: Container(

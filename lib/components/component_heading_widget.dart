@@ -1,9 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'component_heading_model.dart';
 export 'component_heading_model.dart';
 
@@ -56,27 +54,37 @@ class _ComponentHeadingWidgetState extends State<ComponentHeadingWidget> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          widget!.title!,
+          widget.title!,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Roboto',
+                font: GoogleFonts.roboto(
+                  fontWeight: FontWeight.w800,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                ),
                 color: FlutterFlowTheme.of(context).primary,
-                fontSize: widget!.titleSize?.toDouble(),
+                fontSize: widget.titleSize?.toDouble(),
                 letterSpacing: 0.15,
                 fontWeight: FontWeight.w800,
+                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                 lineHeight: 1.4,
               ),
         ),
         Text(
-          widget!.description!,
+          widget.description!,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Roboto',
+                font: GoogleFonts.roboto(
+                  fontWeight:
+                      FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                ),
                 color: Color(0xFFAFACC7),
-                fontSize: widget!.descriptionSize?.toDouble(),
+                fontSize: widget.descriptionSize?.toDouble(),
                 letterSpacing: 0.0,
+                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                 lineHeight: 1.5,
               ),
         ),
-      ].divide(SizedBox(height: widget!.spacing!.toDouble())),
+      ].divide(SizedBox(height: widget.spacing!.toDouble())),
     );
   }
 }

@@ -1,16 +1,15 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'test_page_model.dart';
 export 'test_page_model.dart';
 
 class TestPageWidget extends StatefulWidget {
   const TestPageWidget({super.key});
+
+  static String routeName = 'testPage';
+  static String routePath = '/testPage';
 
   @override
   State<TestPageWidget> createState() => _TestPageWidgetState();

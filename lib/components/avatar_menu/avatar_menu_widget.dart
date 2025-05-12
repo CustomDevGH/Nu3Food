@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
@@ -58,11 +57,16 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
               'c7ui5zar' /* Choose your avatar */,
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Roboto',
+                  font: GoogleFonts.roboto(
+                    fontWeight: FontWeight.w800,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                  ),
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 20.0,
                   letterSpacing: 0.15,
                   fontWeight: FontWeight.w800,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                   lineHeight: 1.4,
                 ),
           ),
@@ -71,7 +75,7 @@ class _AvatarMenuWidgetState extends State<AvatarMenuWidget> {
               builder: (context) {
                 final image = functions
                     .getListOfAvatars(currentUserPhoto)
-                    .where((e) => e != null && e != '')
+                    .where((e) => e != '')
                     .toList();
 
                 return Wrap(

@@ -5,9 +5,8 @@ import '/components/medication/medication_widget.dart';
 import '/components/personal_info/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
-import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -19,6 +18,9 @@ export 'wizard_model.dart';
 
 class WizardWidget extends StatefulWidget {
   const WizardWidget({super.key});
+
+  static String routeName = 'Wizard';
+  static String routePath = '/wizard';
 
   @override
   State<WizardWidget> createState() => _WizardWidgetState();
@@ -40,7 +42,7 @@ class _WizardWidgetState extends State<WizardWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('WIZARD_PAGE_Wizard_ON_INIT_STATE');
-      if (FFAppState().imageName == null || FFAppState().imageName == '') {
+      if (FFAppState().imageName == '') {
         FFAppState().imageName = 'abc';
         safeSetState(() {});
       }
@@ -223,10 +225,23 @@ class _WizardWidgetState extends State<WizardWidget> {
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Roboto',
+                                                    font: GoogleFonts.roboto(
+                                                      fontWeight:
+                                                          FontWeight.w800,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     color: Color(0xFFB7C1FA),
                                                     letterSpacing: 0.15,
                                                     fontWeight: FontWeight.w800,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                     lineHeight: 1.5,
                                                   ),
                                             ),
@@ -264,7 +279,7 @@ class _WizardWidgetState extends State<WizardWidget> {
                                               'WIZARD_PAGE_Text_bwe2kd7j_ON_TAP');
                                           FFAppState().IsGuest = true;
 
-                                          context.goNamed('Home');
+                                          context.goNamed(HomeWidget.routeName);
                                         },
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -274,12 +289,23 @@ class _WizardWidgetState extends State<WizardWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                font: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w800,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
                                                 letterSpacing: 0.15,
                                                 fontWeight: FontWeight.w800,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                                 lineHeight: 1.5,
                                               ),
                                         ),
@@ -443,7 +469,8 @@ class _WizardWidgetState extends State<WizardWidget> {
                                                   'WIZARD_PAGE_Container_nq3olyhu_ON_TAP');
                                               FFAppState().IsGuest = false;
 
-                                              context.goNamed('Home');
+                                              context.goNamed(
+                                                  HomeWidget.routeName);
                                             },
                                             child: Container(
                                               decoration: BoxDecoration(
@@ -467,12 +494,26 @@ class _WizardWidgetState extends State<WizardWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        font:
+                                                            GoogleFonts.roboto(
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
                                                             Color(0xFFB7C1FA),
                                                         letterSpacing: 0.15,
                                                         fontWeight:
                                                             FontWeight.w800,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                         lineHeight: 1.5,
                                                       ),
                                                 ),

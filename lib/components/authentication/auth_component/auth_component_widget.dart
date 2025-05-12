@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -71,9 +72,10 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                   }
                   FFAppState().IsGuest = false;
                   if (FFAppState().DoneWizzard == false) {
-                    context.goNamedAuth('Wizard', context.mounted);
+                    context.goNamedAuth(
+                        WizardWidget.routeName, context.mounted);
                   } else {
-                    context.goNamedAuth('Home', context.mounted);
+                    context.goNamedAuth(HomeWidget.routeName, context.mounted);
                   }
 
                   _model.loading = false;
@@ -107,11 +109,19 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 16.0,
                                     letterSpacing: 0.32,
                                     fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -133,9 +143,10 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                   }
                   FFAppState().IsGuest = false;
                   if (FFAppState().DoneWizzard == false) {
-                    context.goNamedAuth('Wizard', context.mounted);
+                    context.goNamedAuth(
+                        WizardWidget.routeName, context.mounted);
                   } else {
-                    context.goNamedAuth('Home', context.mounted);
+                    context.goNamedAuth(HomeWidget.routeName, context.mounted);
                   }
                 },
                 child: Container(
@@ -165,11 +176,19 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 16.0,
                                     letterSpacing: 0.32,
                                     fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -191,9 +210,10 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                   }
                   FFAppState().IsGuest = false;
                   if (FFAppState().DoneWizzard == false) {
-                    context.goNamedAuth('Wizard', context.mounted);
+                    context.goNamedAuth(
+                        WizardWidget.routeName, context.mounted);
                   } else {
-                    context.goNamedAuth('Home', context.mounted);
+                    context.goNamedAuth(HomeWidget.routeName, context.mounted);
                   }
 
                   _model.loading = false;
@@ -237,11 +257,19 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  font: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: Color(0xFF757575),
                                   fontSize: 14.0,
                                   letterSpacing: 0.32,
                                   fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -264,7 +292,7 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                     return;
                   }
 
-                  context.goNamedAuth('Home', context.mounted);
+                  context.goNamedAuth(HomeWidget.routeName, context.mounted);
                 },
                 child: Container(
                   width: double.infinity,
@@ -285,10 +313,18 @@ class _AuthComponentWidgetState extends State<AuthComponentWidget> {
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w800,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     letterSpacing: 0.15,
                                     fontWeight: FontWeight.w800,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                     lineHeight: 1.5,
                                   ),
                         ),

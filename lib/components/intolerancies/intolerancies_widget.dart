@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -124,10 +123,16 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
               selectedChipStyle: ChipStyle(
                 backgroundColor: Color(0xFF382F73),
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Roboto',
+                      font: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w800,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                       color: Color(0xFFF7F7F7),
                       letterSpacing: 0.15,
                       fontWeight: FontWeight.w800,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                       lineHeight: 1.5,
                     ),
                 iconColor: Color(0x00000000),
@@ -142,10 +147,16 @@ class _IntoleranciesWidgetState extends State<IntoleranciesWidget> {
               unselectedChipStyle: ChipStyle(
                 backgroundColor: Color(0x00000000),
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Roboto',
+                      font: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w800,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                       color: Color(0xFFAFACC7),
                       letterSpacing: 0.15,
                       fontWeight: FontWeight.w800,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                       lineHeight: 1.5,
                     ),
                 iconColor: Color(0x00000000),

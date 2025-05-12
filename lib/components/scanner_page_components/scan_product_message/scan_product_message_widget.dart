@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'scan_product_message_model.dart';
 export 'scan_product_message_model.dart';
 
@@ -52,11 +51,15 @@ class _ScanProductMessageWidgetState extends State<ScanProductMessageWidget> {
           ),
           maxLines: 1,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Roboto',
+                font: GoogleFonts.roboto(
+                  fontWeight: FontWeight.w800,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                ),
                 color: Color(0xFFD7D5E3),
                 fontSize: 32.0,
                 letterSpacing: 0.25,
                 fontWeight: FontWeight.w800,
+                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                 lineHeight: 1.3,
               ),
         ),

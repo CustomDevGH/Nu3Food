@@ -1,10 +1,8 @@
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/scanner_detail/nutrition_table_row/nutrition_table_row_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -56,7 +54,7 @@ class _SlidingUpPanelFromEanWidgetState
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('SLIDING_UP_PANEL_FROM_EAN_SlidingUpPanel');
       _model.product = await actions.getProductById(
-        widget!.doc!,
+        widget.doc!,
       );
       _model.productLoaded = true;
       safeSetState(() {});
@@ -99,11 +97,11 @@ class _SlidingUpPanelFromEanWidgetState
           bottomLeft: Radius.circular(20.0),
           bottomRight: Radius.circular(20.0),
           topLeft: Radius.circular(valueOrDefault<double>(
-            widget!.isLive ? 0.0 : 20.0,
+            widget.isLive ? 0.0 : 20.0,
             0.0,
           )),
           topRight: Radius.circular(valueOrDefault<double>(
-            widget!.isLive ? 0.0 : 20.0,
+            widget.isLive ? 0.0 : 20.0,
             0.0,
           )),
         ),
@@ -112,7 +110,7 @@ class _SlidingUpPanelFromEanWidgetState
         padding: EdgeInsetsDirectional.fromSTEB(24.0, 65.0, 24.0, 12.0),
         child: Stack(
           children: [
-            if (widget!.isOpened == true)
+            if (widget.isOpened == true)
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 15.0, 24.0, 0.0),
                 child: SingleChildScrollView(
@@ -142,18 +140,27 @@ class _SlidingUpPanelFromEanWidgetState
                                 ),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    widget!.doc?.name,
+                                    widget.doc?.name,
                                     'No name',
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        font: GoogleFonts.roboto(
+                                          fontWeight: FontWeight.w800,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         fontSize: 24.0,
                                         letterSpacing: 0.25,
                                         fontWeight: FontWeight.w800,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                         lineHeight: 1.4,
                                       ),
                                 ),
@@ -162,7 +169,7 @@ class _SlidingUpPanelFromEanWidgetState
                                 valueOrDefault<String>(
                                   (String var1) {
                                     return var1.split("|").last;
-                                  }(widget!.doc!.category),
+                                  }(widget.doc!.category),
                                   'Milk',
                                 ).maybeHandleOverflow(
                                   maxChars: 25,
@@ -172,27 +179,43 @@ class _SlidingUpPanelFromEanWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Roboto',
+                                      font: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       color: Color(0xFFAFACC7),
                                       fontSize: 18.0,
                                       letterSpacing: 0.15,
                                       fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                       lineHeight: 1.55,
                                     ),
                               ),
                               Text(
                                 valueOrDefault<String>(
-                                  widget!.doc?.addressLines?.firstOrNull,
+                                  widget.doc?.addressLines.firstOrNull,
                                   'No producer',
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Roboto',
+                                      font: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       color: Color(0xFFAFACC7),
                                       fontSize: 16.0,
                                       letterSpacing: 0.15,
                                       fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                       lineHeight: 1.5,
                                     ),
                               ),
@@ -200,7 +223,7 @@ class _SlidingUpPanelFromEanWidgetState
                           ),
                         ),
                       ),
-                      if (widget!.doc?.allergens?.length != 0)
+                      if (widget.doc?.allergens.length != 0)
                         Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           decoration: BoxDecoration(
@@ -218,12 +241,20 @@ class _SlidingUpPanelFromEanWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Roboto',
+                                      font: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.w800,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                       fontSize: 20.0,
                                       letterSpacing: 0.15,
                                       fontWeight: FontWeight.w800,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                       lineHeight: 1.4,
                                     ),
                               ),
@@ -231,7 +262,7 @@ class _SlidingUpPanelFromEanWidgetState
                                 builder: (context) {
                                   final allergen = functions
                                       .getEveryOtherFromList(
-                                          widget!.doc!.allergens.toList(),
+                                          widget.doc!.allergens.toList(),
                                           FFLocalizations.of(context)
                                                   .languageCode ==
                                               'en')
@@ -271,7 +302,15 @@ class _SlidingUpPanelFromEanWidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Roboto',
+                                                    font: GoogleFonts.roboto(
+                                                      fontWeight:
+                                                          FontWeight.w800,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     color: functions
                                                             .listContainsItem(
                                                                 allergenItem,
@@ -286,6 +325,11 @@ class _SlidingUpPanelFromEanWidgetState
                                                             .primary,
                                                     letterSpacing: 0.15,
                                                     fontWeight: FontWeight.w800,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                     lineHeight: 1.5,
                                                   ),
                                             ),
@@ -335,7 +379,7 @@ class _SlidingUpPanelFromEanWidgetState
                                               width: double.infinity,
                                               height: double.infinity,
                                               name:
-                                                  'nutriscore-${_model.product?.nutriscoreGrade?.name}.png',
+                                                  'nutriscore-${_model.product?.nutriscoreGrade.name}.png',
                                               isInternet: false,
                                             ),
                                           ),
@@ -362,164 +406,248 @@ class _SlidingUpPanelFromEanWidgetState
                                                     .getText(
                                                   '5221zncg' /* Fat */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: valueOrDefault<
-                                                              Color>(
-                                                            () {
-                                                              if (_model.product
-                                                                      ?.nutriscoreFatLevel ==
-                                                                  NutriscoreLevels
-                                                                      .low) {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .success;
-                                                              } else if (_model
-                                                                      .product
-                                                                      ?.nutriscoreFatLevel ==
-                                                                  NutriscoreLevels
-                                                                      .moderate) {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .warning;
-                                                              } else {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .error;
-                                                              }
-                                                            }(),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font: GoogleFonts.roboto(
+                                                        fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryText,
-                                                          ),
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        () {
+                                                          if (_model.product
+                                                                  ?.nutriscoreFatLevel ==
+                                                              NutriscoreLevels
+                                                                  .low) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .success;
+                                                          } else if (_model
+                                                                  .product
+                                                                  ?.nutriscoreFatLevel ==
+                                                              NutriscoreLevels
+                                                                  .moderate) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .warning;
+                                                          } else {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error;
+                                                          }
+                                                        }(),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
                                                   'xe760vzf' /* Sugar */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: valueOrDefault<
-                                                              Color>(
-                                                            () {
-                                                              if (_model.product
-                                                                      ?.nutriscoreSugarLevel ==
-                                                                  NutriscoreLevels
-                                                                      .low) {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .success;
-                                                              } else if (_model
-                                                                      .product
-                                                                      ?.nutriscoreSaturatedFatLevel ==
-                                                                  NutriscoreLevels
-                                                                      .moderate) {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .warning;
-                                                              } else {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .error;
-                                                              }
-                                                            }(),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font: GoogleFonts.roboto(
+                                                        fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryText,
-                                                          ),
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        () {
+                                                          if (_model.product
+                                                                  ?.nutriscoreSugarLevel ==
+                                                              NutriscoreLevels
+                                                                  .low) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .success;
+                                                          } else if (_model
+                                                                  .product
+                                                                  ?.nutriscoreSaturatedFatLevel ==
+                                                              NutriscoreLevels
+                                                                  .moderate) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .warning;
+                                                          } else {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error;
+                                                          }
+                                                        }(),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
                                                   '65cuwcsd' /* Saturated fats */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: valueOrDefault<
-                                                              Color>(
-                                                            () {
-                                                              if (_model.product
-                                                                      ?.nutriscoreSaturatedFatLevel ==
-                                                                  NutriscoreLevels
-                                                                      .low) {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .success;
-                                                              } else if (_model
-                                                                      .product
-                                                                      ?.nutriscoreSaturatedFatLevel ==
-                                                                  NutriscoreLevels
-                                                                      .moderate) {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .warning;
-                                                              } else {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .error;
-                                                              }
-                                                            }(),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font: GoogleFonts.roboto(
+                                                        fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryText,
-                                                          ),
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        () {
+                                                          if (_model.product
+                                                                  ?.nutriscoreSaturatedFatLevel ==
+                                                              NutriscoreLevels
+                                                                  .low) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .success;
+                                                          } else if (_model
+                                                                  .product
+                                                                  ?.nutriscoreSaturatedFatLevel ==
+                                                              NutriscoreLevels
+                                                                  .moderate) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .warning;
+                                                          } else {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error;
+                                                          }
+                                                        }(),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
                                                   'qs5r83dc' /* Salt */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: valueOrDefault<
-                                                              Color>(
-                                                            () {
-                                                              if (_model.product
-                                                                      ?.nutriscoreSaltLevel ==
-                                                                  NutriscoreLevels
-                                                                      .low) {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .success;
-                                                              } else if (_model
-                                                                      .product
-                                                                      ?.nutriscoreSaltLevel ==
-                                                                  NutriscoreLevels
-                                                                      .moderate) {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .warning;
-                                                              } else {
-                                                                return FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .error;
-                                                              }
-                                                            }(),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font: GoogleFonts.roboto(
+                                                        fontWeight:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryText,
-                                                          ),
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        () {
+                                                          if (_model.product
+                                                                  ?.nutriscoreSaltLevel ==
+                                                              NutriscoreLevels
+                                                                  .low) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .success;
+                                                          } else if (_model
+                                                                  .product
+                                                                  ?.nutriscoreSaltLevel ==
+                                                              NutriscoreLevels
+                                                                  .moderate) {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .warning;
+                                                          } else {
+                                                            return FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error;
+                                                          }
+                                                        }(),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryText,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ]
                                                 .divide(SizedBox(height: 15.0))
@@ -566,7 +694,7 @@ class _SlidingUpPanelFromEanWidgetState
                                               width: double.infinity,
                                               height: double.infinity,
                                               name:
-                                                  'nova-group-${_model.product?.novaGrade?.toString()}.png',
+                                                  'nova-group-${_model.product?.novaGrade.toString()}.png',
                                               isInternet: false,
                                             ),
                                           ),
@@ -595,16 +723,38 @@ class _SlidingUpPanelFromEanWidgetState
                                                               .toList()),
                                                   'No data',
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font: GoogleFonts.roboto(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .primaryText,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -643,9 +793,28 @@ class _SlidingUpPanelFromEanWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .displaySmall
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                font: GoogleFonts.roboto(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
+                                                ),
                                                 color: Colors.black,
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontStyle,
                                               ),
                                         ),
                                         collapsed: Container(
@@ -663,7 +832,7 @@ class _SlidingUpPanelFromEanWidgetState
                                               width: double.infinity,
                                               height: double.infinity,
                                               name:
-                                                  'Eco-score_${_model.product?.ecoScoreGrade?.name}.png',
+                                                  'Eco-score_${_model.product?.ecoScoreGrade.name}.png',
                                               isInternet: false,
                                             ),
                                           ),
@@ -676,15 +845,35 @@ class _SlidingUpPanelFromEanWidgetState
                                                   .getText(
                                                 't4wyn9zh' /* Lorem ipsum dolor sit amet, co... */,
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            Color(0x8A000000),
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.roboto(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
+                                                    color: Color(0x8A000000),
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                             ),
                                           ],
                                         ),
@@ -722,19 +911,27 @@ class _SlidingUpPanelFromEanWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Roboto',
+                                      font: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.w800,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                       fontSize: 20.0,
                                       letterSpacing: 0.15,
                                       fontWeight: FontWeight.w800,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                       lineHeight: 1.4,
                                     ),
                               ),
                               custom_widgets.MedicationDisplay(
                                 width: double.infinity,
                                 height: 120.0,
-                                product: widget!.doc,
+                                product: widget.doc,
                               ),
                             ].divide(SizedBox(height: 12.0)),
                           ),
@@ -765,12 +962,22 @@ class _SlidingUpPanelFromEanWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Roboto',
+                                          font: GoogleFonts.roboto(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           fontSize: 16.0,
                                           letterSpacing: 0.15,
                                           fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                           lineHeight: 1.55,
                                         ),
                                   ),
@@ -781,12 +988,22 @@ class _SlidingUpPanelFromEanWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Roboto',
+                                          font: GoogleFonts.roboto(
+                                            fontWeight: FontWeight.w500,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           fontSize: 16.0,
                                           letterSpacing: 0.15,
                                           fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                           lineHeight: 1.55,
                                         ),
                                   ),
@@ -808,7 +1025,7 @@ class _SlidingUpPanelFromEanWidgetState
                                 child: Builder(
                                   builder: (context) {
                                     final nutrition =
-                                        widget!.doc?.nutrients?.toList() ?? [];
+                                        widget.doc?.nutrients.toList() ?? [];
 
                                     return Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -840,7 +1057,7 @@ class _SlidingUpPanelFromEanWidgetState
                   ),
                 ),
               ),
-            if (widget!.isOpened == false)
+            if (widget.isOpened == false)
               Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -865,7 +1082,7 @@ class _SlidingUpPanelFromEanWidgetState
                           children: [
                             AutoSizeText(
                               valueOrDefault<String>(
-                                widget!.doc?.name,
+                                widget.doc?.name,
                                 'No name',
                               ).maybeHandleOverflow(
                                 maxChars: 20,
@@ -874,16 +1091,24 @@ class _SlidingUpPanelFromEanWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w800,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 32.0,
                                     letterSpacing: 0.25,
                                     fontWeight: FontWeight.w800,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
                             AutoSizeText(
                               valueOrDefault<String>(
-                                widget!.doc?.addressLines?.firstOrNull,
+                                widget.doc?.addressLines.firstOrNull,
                                 'No producer',
                               ).maybeHandleOverflow(
                                 maxChars: 25,
@@ -891,11 +1116,19 @@ class _SlidingUpPanelFromEanWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Color(0xFFAFACC7),
                                     fontSize: 18.0,
                                     letterSpacing: 0.15,
                                     fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
                           ].divide(SizedBox(height: 15.0)),
@@ -923,7 +1156,7 @@ class _SlidingUpPanelFromEanWidgetState
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    if (widget!.isOpened == false)
+                    if (widget.isOpened == false)
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
@@ -933,11 +1166,19 @@ class _SlidingUpPanelFromEanWidgetState
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 12.64,
                                     letterSpacing: 0.5,
                                     fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                     lineHeight: 1.7,
                                   ),
                         ),

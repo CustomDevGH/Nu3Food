@@ -1,10 +1,8 @@
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'nutrition_table_row_model.dart';
 export 'nutrition_table_row_model.dart';
 
@@ -60,28 +58,40 @@ class _NutritionTableRowWidgetState extends State<NutritionTableRowWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${widget!.nutrient?.nutrientType}'.maybeHandleOverflow(
+                  '${widget.nutrient?.nutrientType}'.maybeHandleOverflow(
                     maxChars: 15,
                     replacement: '…',
                   ),
                   maxLines: 1,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Roboto',
+                        font: GoogleFonts.roboto(
+                          fontWeight: FontWeight.normal,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
                         color: Color(0xFFAFACC7),
                         fontSize: 14.0,
                         letterSpacing: 0.25,
                         fontWeight: FontWeight.normal,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         lineHeight: 1.65,
                       ),
                 ),
                 Text(
-                  '${widget!.nutrient?.value}${widget!.nutrient?.unit}',
+                  '${widget.nutrient?.value}${widget.nutrient?.unit}',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Roboto',
+                        font: GoogleFonts.roboto(
+                          fontWeight: FontWeight.normal,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
                         color: Color(0xFFAFACC7),
                         fontSize: 14.0,
                         letterSpacing: 0.25,
                         fontWeight: FontWeight.normal,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         lineHeight: 1.65,
                       ),
                 ),

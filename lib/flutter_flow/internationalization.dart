@@ -150,10 +150,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Last scanned items',
       'sk': 'Naposledy naskenované položky',
     },
-    '7v177thx': {
-      'en': 'Open wizzard Debug',
-      'sk': 'Otvorte skener',
-    },
     '7a876va4': {
       'en': 'Home',
       'sk': 'Domov',
@@ -562,6 +558,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Title',
       'sk': 'Názov',
     },
+    'bdrrcflo': {
+      'en': 'Gender',
+      'sk': 'Pohlavie',
+    },
+    'hwg21qi2': {
+      'en': 'Search for an item...',
+      'sk': 'Vyhľadať položku...',
+    },
     'ulejwi2y': {
       'en': 'Male',
       'sk': 'Muž',
@@ -573,14 +577,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'oa8xf1yu': {
       'en': 'Attack hellicopter',
       'sk': 'Útočná helikoptéra',
-    },
-    'bdrrcflo': {
-      'en': 'Gender',
-      'sk': 'Pohlavie',
-    },
-    'hwg21qi2': {
-      'en': 'Search for an item...',
-      'sk': 'Vyhľadať položku...',
     },
   },
   // Miscellaneous

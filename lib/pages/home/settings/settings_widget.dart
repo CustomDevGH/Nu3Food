@@ -1,14 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/avatar_menu/avatar_menu_widget.dart';
 import '/components/intolerancies/intolerancies_widget.dart';
 import '/components/medication/medication_widget.dart';
 import '/components/personal_info/personal_info_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
-import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -19,6 +17,9 @@ export 'settings_model.dart';
 
 class SettingsWidget extends StatefulWidget {
   const SettingsWidget({super.key});
+
+  static String routeName = 'Settings';
+  static String routePath = '/settings';
 
   @override
   State<SettingsWidget> createState() => _SettingsWidgetState();
@@ -111,11 +112,19 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w800,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 24.0,
                                     letterSpacing: 0.15,
                                     fontWeight: FontWeight.w800,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                     lineHeight: 1.4,
                                   ),
                         ),
@@ -192,7 +201,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                             FFAppState().deleteMedication();
                             FFAppState().Medication = [];
 
-                            context.goNamedAuth('Welcome', context.mounted);
+                            context.goNamedAuth(
+                                WelcomeWidget.routeName, context.mounted);
                           },
                           child: Container(
                             width: double.infinity,
@@ -211,10 +221,23 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Roboto',
+                                      font: GoogleFonts.roboto(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       color: Color(0xFFB7C1FA),
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -239,7 +262,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           logFirebaseEvent(
                               'SETTINGS_PAGE_Container_mb56g0qh_ON_TAP');
 
-                          context.pushNamed('Home');
+                          context.pushNamed(HomeWidget.routeName);
                         },
                         child: Container(
                           width: double.infinity,
@@ -258,10 +281,18 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w800,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: Color(0xFFB7C1FA),
                                     letterSpacing: 0.15,
                                     fontWeight: FontWeight.w800,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                     lineHeight: 1.5,
                                   ),
                             ),
@@ -280,7 +311,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                         logFirebaseEvent(
                             'SETTINGS_PAGE_Container_yhb4usge_ON_TAP');
 
-                        context.pushNamed('Home');
+                        context.pushNamed(HomeWidget.routeName);
                       },
                       child: Container(
                         width: 50.0,

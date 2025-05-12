@@ -166,118 +166,103 @@ class ThemeTypography extends Typography {
   final FlutterFlowTheme theme;
 
   String get displayLargeFamily => 'Roboto';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get displayLarge => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 42.0,
       );
   String get displayMediumFamily => 'Roboto';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get displayMedium => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.bold,
         fontSize: 32.0,
         fontStyle: FontStyle.normal,
       );
   String get displaySmallFamily => 'Roboto';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get displaySmall => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.bold,
         fontSize: 24.0,
         fontStyle: FontStyle.normal,
       );
   String get headlineLargeFamily => 'Roboto';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get headlineLarge => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.w800,
         fontSize: 42.0,
         fontStyle: FontStyle.normal,
       );
   String get headlineMediumFamily => 'Roboto';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get headlineMedium => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.w800,
         fontSize: 32.0,
         fontStyle: FontStyle.normal,
       );
   String get headlineSmallFamily => 'Roboto';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get headlineSmall => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.w800,
         fontSize: 24.0,
         fontStyle: FontStyle.normal,
       );
   String get titleLargeFamily => 'Roboto';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get titleLarge => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.w800,
         fontSize: 24.0,
         fontStyle: FontStyle.normal,
       );
   String get titleMediumFamily => 'Roboto';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get titleMedium => GoogleFonts.roboto(
         color: theme.info,
         fontWeight: FontWeight.bold,
         fontSize: 24.0,
         fontStyle: FontStyle.normal,
       );
   String get titleSmallFamily => 'Roboto';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get titleSmall => GoogleFonts.roboto(
         color: theme.info,
         fontWeight: FontWeight.w800,
         fontSize: 20.0,
         fontStyle: FontStyle.normal,
       );
   String get labelLargeFamily => 'Roboto';
-  TextStyle get labelLarge => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get labelLarge => GoogleFonts.roboto(
         color: theme.secondaryText,
         fontWeight: FontWeight.w800,
         fontSize: 18.0,
         fontStyle: FontStyle.normal,
       );
   String get labelMediumFamily => 'Roboto';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get labelMedium => GoogleFonts.roboto(
         color: theme.secondaryText,
         fontWeight: FontWeight.bold,
         fontSize: 18.0,
         fontStyle: FontStyle.normal,
       );
   String get labelSmallFamily => 'Roboto';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get labelSmall => GoogleFonts.roboto(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.64,
         fontStyle: FontStyle.normal,
       );
   String get bodyLargeFamily => 'Roboto';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get bodyLarge => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.w800,
         fontSize: 16.0,
         fontStyle: FontStyle.normal,
       );
   String get bodyMediumFamily => 'Roboto';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get bodyMedium => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
   String get bodySmallFamily => 'Roboto';
-  TextStyle get bodySmall => GoogleFonts.getFont(
-        'Roboto',
+  TextStyle get bodySmall => GoogleFonts.roboto(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -286,38 +271,47 @@ class ThemeTypography extends Typography {
 
 extension TextStyleHelper on TextStyle {
   TextStyle override({
+    TextStyle? font,
     String? fontFamily,
     Color? color,
     double? fontSize,
     FontWeight? fontWeight,
     double? letterSpacing,
     FontStyle? fontStyle,
-    bool useGoogleFonts = true,
+    bool useGoogleFonts = false,
     TextDecoration? decoration,
     double? lineHeight,
     List<Shadow>? shadows,
-  }) =>
-      useGoogleFonts
-          ? GoogleFonts.getFont(
-              fontFamily!,
-              color: color ?? this.color,
-              fontSize: fontSize ?? this.fontSize,
-              letterSpacing: letterSpacing ?? this.letterSpacing,
-              fontWeight: fontWeight ?? this.fontWeight,
-              fontStyle: fontStyle ?? this.fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            )
-          : copyWith(
-              fontFamily: fontFamily,
-              color: color,
-              fontSize: fontSize,
-              letterSpacing: letterSpacing,
-              fontWeight: fontWeight,
-              fontStyle: fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            );
+    String? package,
+  }) {
+    if (useGoogleFonts && fontFamily != null) {
+      font = GoogleFonts.getFont(fontFamily,
+          fontWeight: fontWeight ?? this.fontWeight,
+          fontStyle: fontStyle ?? this.fontStyle);
+    }
+
+    return font != null
+        ? font.copyWith(
+            color: color ?? this.color,
+            fontSize: fontSize ?? this.fontSize,
+            letterSpacing: letterSpacing ?? this.letterSpacing,
+            fontWeight: fontWeight ?? this.fontWeight,
+            fontStyle: fontStyle ?? this.fontStyle,
+            decoration: decoration,
+            height: lineHeight,
+            shadows: shadows,
+          )
+        : copyWith(
+            fontFamily: fontFamily,
+            package: package,
+            color: color,
+            fontSize: fontSize,
+            letterSpacing: letterSpacing,
+            fontWeight: fontWeight,
+            fontStyle: fontStyle,
+            decoration: decoration,
+            height: lineHeight,
+            shadows: shadows,
+          );
+  }
 }

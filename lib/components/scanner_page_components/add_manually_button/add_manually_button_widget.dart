@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -61,7 +60,7 @@ class _AddManuallyButtonWidgetState extends State<AddManuallyButtonWidget> {
         await RequestedEansRecord.collection
             .doc()
             .set(createRequestedEansRecordData(
-              ean: widget!.ean,
+              ean: widget.ean,
               createdBy: FFAppState().IsGuest ? 'guest' : currentUserUid,
               creationTime: getCurrentTimestamp,
             ));
@@ -81,11 +80,16 @@ class _AddManuallyButtonWidgetState extends State<AddManuallyButtonWidget> {
               '7dl2baci' /* Add manually */,
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Roboto',
+                  font: GoogleFonts.roboto(
+                    fontWeight: FontWeight.w800,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                  ),
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 18.0,
                   letterSpacing: 0.15,
                   fontWeight: FontWeight.w800,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                 ),
           ),
         ),

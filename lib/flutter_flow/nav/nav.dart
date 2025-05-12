@@ -1,22 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
-import '/index.dart';
-import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
+
+import '/index.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -96,48 +89,48 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               : WelcomeWidget(),
         ),
         FFRoute(
-          name: 'Home',
-          path: '/home',
+          name: HomeWidget.routeName,
+          path: HomeWidget.routePath,
           builder: (context, params) => HomeWidget(),
         ),
         FFRoute(
-          name: 'Settings',
-          path: '/settings',
+          name: SettingsWidget.routeName,
+          path: SettingsWidget.routePath,
           builder: (context, params) => SettingsWidget(),
         ),
         FFRoute(
-          name: 'Camera',
-          path: '/camera',
+          name: CameraWidget.routeName,
+          path: CameraWidget.routePath,
           builder: (context, params) => CameraWidget(),
         ),
         FFRoute(
-          name: 'Welcome',
-          path: '/welcome',
+          name: WelcomeWidget.routeName,
+          path: WelcomeWidget.routePath,
           builder: (context, params) => WelcomeWidget(),
         ),
         FFRoute(
-          name: 'SubSettings',
-          path: '/subSettings',
+          name: SubSettingsWidget.routeName,
+          path: SubSettingsWidget.routePath,
           builder: (context, params) => SubSettingsWidget(),
         ),
         FFRoute(
-          name: 'Wizard',
-          path: '/wizard',
+          name: WizardWidget.routeName,
+          path: WizardWidget.routePath,
           builder: (context, params) => WizardWidget(),
         ),
         FFRoute(
-          name: 'testPage',
-          path: '/testPage',
+          name: TestPageWidget.routeName,
+          path: TestPageWidget.routePath,
           builder: (context, params) => TestPageWidget(),
         ),
         FFRoute(
-          name: 'OcrScannerPage',
-          path: '/ocrScannerPage',
+          name: OcrScannerPageWidget.routeName,
+          path: OcrScannerPageWidget.routePath,
           builder: (context, params) => OcrScannerPageWidget(),
         ),
         FFRoute(
-          name: 'OcrDateWizzard',
-          path: '/ocrDateWizzard',
+          name: OcrDateWizzardWidget.routeName,
+          path: OcrDateWizzardWidget.routePath,
           builder: (context, params) => OcrDateWizzardWidget(
             ean: params.getParam(
               'ean',

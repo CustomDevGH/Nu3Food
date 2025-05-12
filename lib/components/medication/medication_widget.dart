@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/components/component_heading_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -118,10 +117,18 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  font: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.w800,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: Color(0xFFF7F7F7),
                                   letterSpacing: 0.15,
                                   fontWeight: FontWeight.w800,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -165,18 +172,33 @@ class _MedicationWidgetState extends State<MedicationWidget> {
             obscureText: false,
             decoration: InputDecoration(
               labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                    fontFamily: 'Roboto',
+                    font: GoogleFonts.roboto(
+                      fontWeight:
+                          FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                    ),
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).labelMedium.fontStyle,
                   ),
               hintText: FFLocalizations.of(context).getText(
                 'jv8nw803' /* Start typing name of product..... */,
               ),
               hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                    fontFamily: 'Roboto',
+                    font: GoogleFonts.roboto(
+                      fontWeight: FontWeight.normal,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                    ),
                     color: FlutterFlowTheme.of(context).primary,
                     fontSize: 16.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.normal,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).labelMedium.fontStyle,
                     lineHeight: 1.5,
                   ),
               enabledBorder: OutlineInputBorder(
@@ -211,8 +233,16 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                   EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 16.0, 10.0),
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Roboto',
+                  font: GoogleFonts.roboto(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                  ),
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                 ),
             validator: _model.textControllerValidator.asValidator(context),
           ),
@@ -275,10 +305,18 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  font: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.w800,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: Color(0xFFAFACC7),
                                   letterSpacing: 0.15,
                                   fontWeight: FontWeight.w800,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -289,7 +327,7 @@ class _MedicationWidgetState extends State<MedicationWidget> {
               );
             },
           ),
-        if (widget!.shouldShowLink ?? true)
+        if (widget.shouldShowLink ?? true)
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
@@ -342,10 +380,18 @@ class _MedicationWidgetState extends State<MedicationWidget> {
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w800,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     letterSpacing: 0.15,
                                     fontWeight: FontWeight.w800,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                     lineHeight: 1.5,
                                   ),
                         ),

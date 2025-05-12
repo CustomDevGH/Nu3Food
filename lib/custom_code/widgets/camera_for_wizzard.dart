@@ -1,6 +1,4 @@
 // Automatic FlutterFlow imports
-import 'package:nu3_food/components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
-
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
@@ -21,6 +19,7 @@ import 'package:google_mlkit_barcode_scanning/google_mlkit_barcode_scanning.dart
 import '../../components/scanner_page_components/close_scanner_button/close_scanner_button_widget.dart';
 import 'package:nu3_food/custom_code/actions/ml_kit_utils.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:nu3_food/components/scanner_page_components/sliding_up_panel_from_ean/sliding_up_panel_from_ean_widget.dart';
 
 class CameraForWizzard extends StatefulWidget {
   final String? ean;

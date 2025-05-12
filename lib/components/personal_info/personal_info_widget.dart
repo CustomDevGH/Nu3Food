@@ -4,10 +4,7 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -67,13 +64,19 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget!.greetingText,
+              widget.greetingText,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Roboto',
+                    font: GoogleFonts.roboto(
+                      fontWeight: FontWeight.w800,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                    ),
                     color: FlutterFlowTheme.of(context).primary,
                     fontSize: 20.0,
                     letterSpacing: 0.15,
                     fontWeight: FontWeight.w800,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                     lineHeight: 1.4,
                   ),
             ),
@@ -121,10 +124,22 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                           15.0, 10.0, 16.0, 10.0),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
+                          font: GoogleFonts.roboto(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           color: FlutterFlowTheme.of(context).primary,
                           fontSize: 16.0,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                           lineHeight: 1.5,
                         ),
                     validator:
@@ -154,6 +169,10 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                       _datePickedDate.month,
                       _datePickedDate.day,
                     );
+                  });
+                } else if (_model.datePicked != null) {
+                  safeSetState(() {
+                    _model.datePicked = getCurrentTimestamp;
                   });
                 }
                 FFAppState().dateOfBirdth = _model.datePicked;
@@ -194,11 +213,19 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                         ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Roboto',
+                              font: GoogleFonts.roboto(
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
                               color: FlutterFlowTheme.of(context).primary,
                               fontSize: 16.0,
                               letterSpacing: 0.15,
                               fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
                               lineHeight: 1.55,
                             ),
                       ),
@@ -246,11 +273,17 @@ class _PersonalInfoWidgetState extends State<PersonalInfoWidget> {
                 width: double.infinity,
                 height: 45.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Roboto',
+                      font: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w600,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                       color: FlutterFlowTheme.of(context).primary,
                       fontSize: 16.0,
                       letterSpacing: 0.15,
                       fontWeight: FontWeight.w600,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                       lineHeight: 1.55,
                     ),
                 hintText: FFLocalizations.of(context).getText(
