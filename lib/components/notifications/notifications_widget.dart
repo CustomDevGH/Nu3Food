@@ -151,7 +151,6 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                   ),
                                   icon: Icon(
                                     Icons.open_in_new_sharp,
-                                    color: Color(0xFF382F73),
                                     size: 12.0,
                                   ),
                                   options: FFButtonOptions(
@@ -160,6 +159,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget> {
                                     padding: EdgeInsets.all(0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
+                                    iconColor: Color(0xFF382F73),
                                     color: Color(0xFFB580D6),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
