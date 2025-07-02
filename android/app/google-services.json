@@ -14,10 +14,62 @@
       },
       "oauth_client": [
         {
+          "client_id": "1052547698119-6lrr8g81orkro7v64ndj8o6uej9qo447.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.customdev.nu3food",
+            "certificate_hash": "cdab70577bd85ee21fc7fd0c2889d0c6b56addfa"
+          }
+        },
+        {
           "client_id": "1052547698119-sjgibngdefogvsu01rat5n4gr1i5lkid.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.customdev.nu3food",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1052547698119-mgn3egkeihj3nnapbfjitssgq63cqoeq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR77uD_NWkdL5ARsMkfsmi6aksHL3Tdpg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052547698119-icu3cmkj3o025gl7qspvacvsd4qbn1hd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1052547698119-bihpii2mobakpi0d3t7h90jrvo1qr980.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "eu.eurospotrebitelia.nu3food"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052547698119:android:709d2b16151c1716255de2",
+        "android_client_info": {
+          "package_name": "eu.customdev.nu3food"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052547698119-nimoafhlhu7f1r98v8ki27du6r40akvq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eu.customdev.nu3food",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
           }
         },
