@@ -1,4 +1,4 @@
-package sk.customdev.nu3food;
+package com.customdev.nu3food;
 
 import androidx.test.rule.ActivityTestRule;
 import dev.flutter.plugins.integration_test.FlutterTestRunner;
